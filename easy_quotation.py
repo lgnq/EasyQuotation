@@ -60,7 +60,64 @@ class MyWindow(QMainWindow, Ui_MainWindow):
             self.price_5m.setText("EUR 0.000") 
             self.price_10m.setText("EUR 0.000")             
 
+    def price_50k_clicked(self):
+        data = self.price_50k.text().split(' ')
+        price = float(data[1])
+
+        self.update_quotation(self.price_50k, price)
+
+    def price_100k_clicked(self):
+        data = self.price_100k.text().split(' ')
+        price = float(data[1])
+
+        self.update_quotation(self.price_100k, price)
+
+    def price_250k_clicked(self):
+        data = self.price_250k.text().split(' ')
+        price = float(data[1])
+
+        self.update_quotation(self.price_250k, price)
+
+    def price_500k_clicked(self):
+        data = self.price_500k.text().split(' ')
+        price = float(data[1])
+
+        self.update_quotation(self.price_500k, price)
+
+    def price_1m_clicked(self):
+        data = self.price_1m.text().split(' ')
+        price = float(data[1])
+
+        self.update_quotation(self.price_1m, price)
+
+    def price_2_5m_clicked(self):
+        data = self.price_2_5m.text().split(' ')
+        price = float(data[1])
+
+        self.update_quotation(self.price_2_5m, price)
+    
+    def price_5m_clicked(self):
+        data = self.price_5m.text().split(' ')
+        price = float(data[1])
+
+        self.update_quotation(self.price_5m, price)
+
+    def price_10m_clicked(self):
+        data = self.price_10m.text().split(' ')
+        price = float(data[1])
+
+        self.update_quotation(self.price_10m, price)
+
     def update_price_list(self, order_number):
+        self.price_50k.setEnabled(True)
+        self.price_100k.setEnabled(True)
+        self.price_250k.setEnabled(True)
+        self.price_500k.setEnabled(True)
+        self.price_1m.setEnabled(True)
+        self.price_2_5m.setEnabled(True)
+        self.price_5m.setEnabled(True)
+        self.price_10m.setEnabled(True)
+
         for i in range(0, self.sheet.nrows):
             if self.sheet.cell_value(i, 0) == order_number:
                 column = 11

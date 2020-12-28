@@ -9,8 +9,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>512</width>
-    <height>556</height>
+    <width>680</width>
+    <height>559</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -84,36 +84,6 @@
          </property>
         </widget>
        </item>
-       <item row="3" column="3">
-        <widget class="QLineEdit" name="price_250k">
-         <property name="enabled">
-          <bool>false</bool>
-         </property>
-         <property name="text">
-          <string/>
-         </property>
-        </widget>
-       </item>
-       <item row="3" column="5">
-        <widget class="QLineEdit" name="price_1m">
-         <property name="enabled">
-          <bool>false</bool>
-         </property>
-         <property name="text">
-          <string/>
-         </property>
-        </widget>
-       </item>
-       <item row="3" column="4">
-        <widget class="QLineEdit" name="price_500k">
-         <property name="enabled">
-          <bool>false</bool>
-         </property>
-         <property name="text">
-          <string/>
-         </property>
-        </widget>
-       </item>
        <item row="2" column="7">
         <widget class="QLineEdit" name="lineEdit_8">
          <property name="enabled">
@@ -134,60 +104,10 @@
          </property>
         </widget>
        </item>
-       <item row="3" column="2">
-        <widget class="QLineEdit" name="price_100k">
-         <property name="enabled">
-          <bool>false</bool>
-         </property>
-         <property name="text">
-          <string/>
-         </property>
-        </widget>
-       </item>
-       <item row="3" column="6">
-        <widget class="QLineEdit" name="price_2_5m">
-         <property name="enabled">
-          <bool>false</bool>
-         </property>
-         <property name="text">
-          <string/>
-         </property>
-        </widget>
-       </item>
-       <item row="3" column="1">
-        <widget class="QLineEdit" name="price_50k">
-         <property name="enabled">
-          <bool>false</bool>
-         </property>
-         <property name="text">
-          <string/>
-         </property>
-        </widget>
-       </item>
-       <item row="3" column="8">
-        <widget class="QLineEdit" name="price_10m">
-         <property name="enabled">
-          <bool>false</bool>
-         </property>
-         <property name="text">
-          <string/>
-         </property>
-        </widget>
-       </item>
        <item row="0" column="1" colspan="2">
         <widget class="QLabel" name="label_4">
          <property name="text">
           <string>Melexis Order Number</string>
-         </property>
-        </widget>
-       </item>
-       <item row="3" column="7">
-        <widget class="QLineEdit" name="price_5m">
-         <property name="enabled">
-          <bool>false</bool>
-         </property>
-         <property name="text">
-          <string/>
          </property>
         </widget>
        </item>
@@ -196,6 +116,86 @@
        </item>
        <item row="0" column="3" colspan="6">
         <widget class="QLineEdit" name="order_number"/>
+       </item>
+       <item row="3" column="1">
+        <widget class="QPushButton" name="price_50k">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="text">
+          <string>EUR 0.000</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="2">
+        <widget class="QPushButton" name="price_100k">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="text">
+          <string>EUR 0.000</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="3">
+        <widget class="QPushButton" name="price_250k">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="text">
+          <string>EUR 0.000</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="4">
+        <widget class="QPushButton" name="price_500k">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="text">
+          <string>EUR 0.000</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="5">
+        <widget class="QPushButton" name="price_1m">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="text">
+          <string>EUR 0.000</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="6">
+        <widget class="QPushButton" name="price_2_5m">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="text">
+          <string>EUR 0.000</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="7">
+        <widget class="QPushButton" name="price_5m">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="text">
+          <string>EUR 0.000</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="8">
+        <widget class="QPushButton" name="price_10m">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="text">
+          <string>EUR 0.000</string>
+         </property>
+        </widget>
        </item>
       </layout>
      </widget>
@@ -607,7 +607,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>512</width>
+     <width>680</width>
      <height>21</height>
     </rect>
    </property>
@@ -647,8 +647,8 @@
    <slot>clear()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>491</x>
-     <y>515</y>
+     <x>659</x>
+     <y>518</y>
     </hint>
     <hint type="destinationlabel">
      <x>511</x>
@@ -759,8 +759,8 @@
    <slot>hexun_update()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>411</x>
-     <y>265</y>
+     <x>579</x>
+     <y>268</y>
     </hint>
     <hint type="destinationlabel">
      <x>511</x>
@@ -775,8 +775,8 @@
    <slot>forex_update()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>411</x>
-     <y>294</y>
+     <x>579</x>
+     <y>297</y>
     </hint>
     <hint type="destinationlabel">
      <x>511</x>
@@ -807,8 +807,8 @@
    <slot>update_rs_usd_x()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>399</x>
-     <y>480</y>
+     <x>511</x>
+     <y>483</y>
     </hint>
     <hint type="destinationlabel">
      <x>511</x>
@@ -823,8 +823,8 @@
    <slot>update_rs_cny_x()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>399</x>
-     <y>454</y>
+     <x>511</x>
+     <y>457</y>
     </hint>
     <hint type="destinationlabel">
      <x>511</x>
@@ -839,8 +839,8 @@
    <slot>update_rs_cny_vat_x()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>399</x>
-     <y>428</y>
+     <x>511</x>
+     <y>431</y>
     </hint>
     <hint type="destinationlabel">
      <x>490</x>
@@ -855,8 +855,8 @@
    <slot>update_rs_eur_x()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>399</x>
-     <y>506</y>
+     <x>511</x>
+     <y>509</y>
     </hint>
     <hint type="destinationlabel">
      <x>511</x>
@@ -871,8 +871,8 @@
    <slot>update_margin()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>364</x>
-     <y>365</y>
+     <x>476</x>
+     <y>368</y>
     </hint>
     <hint type="destinationlabel">
      <x>511</x>
@@ -887,8 +887,8 @@
    <slot>print_quotation()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>491</x>
-     <y>457</y>
+     <x>659</x>
+     <y>460</y>
     </hint>
     <hint type="destinationlabel">
      <x>511</x>
@@ -903,8 +903,8 @@
    <slot>save_exchange_rate()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>470</x>
-     <y>259</y>
+     <x>638</x>
+     <y>262</y>
     </hint>
     <hint type="destinationlabel">
      <x>511</x>
@@ -919,8 +919,8 @@
    <slot>load_exchange_rate()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>466</x>
-     <y>283</y>
+     <x>634</x>
+     <y>286</y>
     </hint>
     <hint type="destinationlabel">
      <x>511</x>
@@ -999,12 +999,140 @@
    <slot>update_vat()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>374</x>
-     <y>393</y>
+     <x>486</x>
+     <y>396</y>
     </hint>
     <hint type="destinationlabel">
      <x>380</x>
-     <y>591</y>
+     <y>558</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>price_50k</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>price_50k_clicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>44</x>
+     <y>197</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-30</x>
+     <y>322</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>price_100k</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>price_100k_clicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>136</x>
+     <y>201</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-10</x>
+     <y>382</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>price_250k</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>price_250k_clicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>198</x>
+     <y>196</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-50</x>
+     <y>418</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>price_500k</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>price_500k_clicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>299</x>
+     <y>199</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-39</x>
+     <y>349</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>price_1m</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>price_1m_clicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>378</x>
+     <y>203</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-116</x>
+     <y>304</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>price_2_5m</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>price_2_5m_clicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>455</x>
+     <y>204</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-105</x>
+     <y>262</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>price_5m</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>price_5m_clicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>542</x>
+     <y>201</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-181</x>
+     <y>243</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>price_10m</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>price_10m_clicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>628</x>
+     <y>203</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-160</x>
+     <y>369</y>
     </hint>
    </hints>
   </connection>
@@ -1039,5 +1167,13 @@
   <slot>order_number_text_edited()</slot>
   <slot>list_view_clicked()</slot>
   <slot>update_vat()</slot>
+  <slot>price_100k_clicked()</slot>
+  <slot>price_50k_clicked()</slot>
+  <slot>price_250k_clicked()</slot>
+  <slot>price_500k_clicked()</slot>
+  <slot>price_1m_clicked()</slot>
+  <slot>price_5m_clicked()</slot>
+  <slot>price_10m_clicked()</slot>
+  <slot>price_2_5m_clicked()</slot>
  </slots>
 </ui>
