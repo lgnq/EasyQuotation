@@ -4,6 +4,8 @@
 from forex_python.converter import CurrencyRates                    
 
 import sys
+import os
+
 from PyQt5.QtWidgets import QApplication, QMainWindow
 from main_window import *
 
@@ -19,6 +21,9 @@ class MyWindow(QMainWindow, Ui_MainWindow):
     def __init__(self, parent=None):
         super(MyWindow, self).__init__(parent)
         self.setupUi(self)
+
+        if os.path.exists("exchange_rate.txt"):
+            self.load_exchange_rate()
 
         self.wb = xlrd.open_workbook("price_book.xls")
         self.sheet = self.wb.sheet_by_index(0)
