@@ -10,7 +10,7 @@
     <x>0</x>
     <y>0</y>
     <width>512</width>
-    <height>530</height>
+    <height>556</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -379,10 +379,73 @@
           <string>Resalse</string>
          </property>
          <layout class="QGridLayout" name="gridLayout_2">
-          <item row="0" column="1">
-           <widget class="QLineEdit" name="margin_15">
+          <item row="9" column="0">
+           <widget class="QLabel" name="label_8">
             <property name="text">
-             <string>15</string>
+             <string>EUR:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="9" column="1">
+           <widget class="QLineEdit" name="rs_eur_15">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="1">
+           <widget class="QLineEdit" name="rs_cny_vat_15">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="0">
+           <widget class="QLabel" name="label_16">
+            <property name="text">
+             <string>CNY(VAT):</string>
+            </property>
+           </widget>
+          </item>
+          <item row="8" column="1">
+           <widget class="QLineEdit" name="rs_usd_15">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="6" column="1">
+           <widget class="QLineEdit" name="rs_cny_15">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="6" column="0">
+           <widget class="QLabel" name="label_9">
+            <property name="text">
+             <string>CNY:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="8" column="0">
+           <widget class="QLabel" name="label_7">
+            <property name="text">
+             <string>USD:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QLineEdit" name="vat_13">
+            <property name="text">
+             <string>13</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="label_10">
+            <property name="text">
+             <string>VAT %:</string>
             </property>
            </widget>
           </item>
@@ -393,59 +456,10 @@
             </property>
            </widget>
           </item>
-          <item row="7" column="0">
-           <widget class="QLabel" name="label_8">
+          <item row="0" column="1">
+           <widget class="QLineEdit" name="margin_15">
             <property name="text">
-             <string>EUR:</string>
-            </property>
-           </widget>
-          </item>
-          <item row="7" column="1">
-           <widget class="QLineEdit" name="rs_eur_15">
-            <property name="enabled">
-             <bool>false</bool>
-            </property>
-           </widget>
-          </item>
-          <item row="6" column="1">
-           <widget class="QLineEdit" name="rs_usd_15">
-            <property name="enabled">
-             <bool>false</bool>
-            </property>
-           </widget>
-          </item>
-          <item row="4" column="1">
-           <widget class="QLineEdit" name="rs_cny_15">
-            <property name="enabled">
-             <bool>false</bool>
-            </property>
-           </widget>
-          </item>
-          <item row="4" column="0">
-           <widget class="QLabel" name="label_9">
-            <property name="text">
-             <string>CNY:</string>
-            </property>
-           </widget>
-          </item>
-          <item row="2" column="0">
-           <widget class="QLabel" name="label_16">
-            <property name="text">
-             <string>CNY(VAT):</string>
-            </property>
-           </widget>
-          </item>
-          <item row="2" column="1">
-           <widget class="QLineEdit" name="rs_cny_vat_15">
-            <property name="enabled">
-             <bool>false</bool>
-            </property>
-           </widget>
-          </item>
-          <item row="6" column="0">
-           <widget class="QLabel" name="label_7">
-            <property name="text">
-             <string>USD:</string>
+             <string>15</string>
             </property>
            </widget>
           </item>
@@ -525,6 +539,20 @@
            <widget class="QLabel" name="label_14">
             <property name="text">
              <string>USD:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="label_11">
+            <property name="text">
+             <string>VAT %:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QLineEdit" name="vat_x">
+            <property name="text">
+             <string>13</string>
             </property>
            </widget>
           </item>
@@ -620,7 +648,7 @@
    <hints>
     <hint type="sourcelabel">
      <x>491</x>
-     <y>489</y>
+     <y>515</y>
     </hint>
     <hint type="destinationlabel">
      <x>511</x>
@@ -635,8 +663,8 @@
    <slot>update_cny()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>112</x>
-     <y>428</y>
+     <x>116</x>
+     <y>454</y>
     </hint>
     <hint type="destinationlabel">
      <x>356</x>
@@ -651,8 +679,8 @@
    <slot>update_usd()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>112</x>
-     <y>454</y>
+     <x>116</x>
+     <y>480</y>
     </hint>
     <hint type="destinationlabel">
      <x>262</x>
@@ -667,8 +695,8 @@
    <slot>update_eur()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>112</x>
-     <y>474</y>
+     <x>116</x>
+     <y>506</y>
     </hint>
     <hint type="destinationlabel">
      <x>217</x>
@@ -683,8 +711,8 @@
    <slot>update_rs_cny_15()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>253</x>
-     <y>428</y>
+     <x>258</x>
+     <y>454</y>
     </hint>
     <hint type="destinationlabel">
      <x>511</x>
@@ -699,8 +727,8 @@
    <slot>update_rs_usd_15()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>253</x>
-     <y>454</y>
+     <x>258</x>
+     <y>480</y>
     </hint>
     <hint type="destinationlabel">
      <x>511</x>
@@ -715,8 +743,8 @@
    <slot>update_rs_eur_15()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>253</x>
-     <y>480</y>
+     <x>258</x>
+     <y>506</y>
     </hint>
     <hint type="destinationlabel">
      <x>511</x>
@@ -763,8 +791,8 @@
    <slot>update_rs_cny_vat_15()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>253</x>
-     <y>401</y>
+     <x>258</x>
+     <y>428</y>
     </hint>
     <hint type="destinationlabel">
      <x>209</x>
@@ -779,8 +807,8 @@
    <slot>update_rs_usd_x()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>395</x>
-     <y>453</y>
+     <x>399</x>
+     <y>480</y>
     </hint>
     <hint type="destinationlabel">
      <x>511</x>
@@ -795,8 +823,8 @@
    <slot>update_rs_cny_x()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>395</x>
-     <y>426</y>
+     <x>399</x>
+     <y>454</y>
     </hint>
     <hint type="destinationlabel">
      <x>511</x>
@@ -811,8 +839,8 @@
    <slot>update_rs_cny_vat_x()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>395</x>
-     <y>399</y>
+     <x>399</x>
+     <y>428</y>
     </hint>
     <hint type="destinationlabel">
      <x>490</x>
@@ -827,8 +855,8 @@
    <slot>update_rs_eur_x()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>395</x>
-     <y>479</y>
+     <x>399</x>
+     <y>506</y>
     </hint>
     <hint type="destinationlabel">
      <x>511</x>
@@ -859,8 +887,8 @@
    <slot>print_quotation()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>459</x>
-     <y>418</y>
+     <x>491</x>
+     <y>457</y>
     </hint>
     <hint type="destinationlabel">
      <x>511</x>
@@ -964,6 +992,22 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>vat_x</sender>
+   <signal>textEdited(QString)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>update_vat()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>374</x>
+     <y>393</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>380</x>
+     <y>591</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>update_cny()</slot>
@@ -994,5 +1038,6 @@
   <slot>search_pn()</slot>
   <slot>order_number_text_edited()</slot>
   <slot>list_view_clicked()</slot>
+  <slot>update_vat()</slot>
  </slots>
 </ui>

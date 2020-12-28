@@ -20,9 +20,7 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         super(MyWindow, self).__init__(parent)
         self.setupUi(self)
 
-        self.margin = 0.08
-        
-        self.wb = xlrd.open_workbook("P_20200327.xls")
+        self.wb = xlrd.open_workbook("price_book.xls")
         self.sheet = self.wb.sheet_by_index(0)
 
         self.qList = []
@@ -96,38 +94,39 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         self.rs_cny_vat_x.setText("")
 
     def update_quotation(self, current_obj, dc_eur):
+        vat_13 = float(self.vat_13.text()) / 100
+        vat_x  = float(self.vat_x.text()) / 100
+
+        margin_15 = float(self.margin_15.text()) / 100
+        margin_x  = float(self.margin_x.text()) / 100
+
         dc_cny = dc_eur * self.eur_cny
         dc_usd = dc_eur * self.eur_usd
 
         if current_obj != self.dc_eur:
             self.dc_eur.setText(("{0:.4f}").format(dc_eur))
-
         if current_obj != self.dc_usd:
             self.dc_usd.setText(("{0:.4f}").format(dc_usd))
-
         if current_obj != self.dc_cny:
             self.dc_cny.setText(("{0:.4f}").format(dc_cny))
 
         if current_obj != self.rs_cny_15:
-            self.rs_cny_15.setText(("{0:.4f}").format(dc_cny*(1+0.15)))
-            
+            self.rs_cny_15.setText(("{0:.4f}").format(dc_cny*(1+margin_15)))
         if current_obj != self.rs_cny_vat_15:
-            self.rs_cny_vat_15.setText(("{0:.4f}").format(dc_cny*(1+0.15)*(1+0.13)))
-        
+            self.rs_cny_vat_15.setText(("{0:.4f}").format(dc_cny*(1+margin_15)*(1+vat_13)))
         if current_obj != self.rs_usd_15:
-            self.rs_usd_15.setText(("{0:.4f}").format(dc_usd*(1+0.15)))
-
+            self.rs_usd_15.setText(("{0:.4f}").format(dc_usd*(1+margin_15)))
         if current_obj != self.rs_eur_15:        
-            self.rs_eur_15.setText(("{0:.4f}").format(dc_eur*(1+0.15)))
+            self.rs_eur_15.setText(("{0:.4f}").format(dc_eur*(1+margin_15)))
 
         if current_obj != self.rs_cny_x:        
-            self.rs_cny_x.setText(("{0:.4f}").format(dc_cny*(1+self.margin)))
+            self.rs_cny_x.setText(("{0:.4f}").format(dc_cny*(1+margin_x)))
         if current_obj != self.rs_cny_vat_x:        
-            self.rs_cny_vat_x.setText(("{0:.4f}").format(dc_cny*(1+self.margin)*(1+0.13)))
+            self.rs_cny_vat_x.setText(("{0:.4f}").format(dc_cny*(1+margin_x)*(1+vat_x)))
         if current_obj != self.rs_usd_x:        
-            self.rs_usd_x.setText(("{0:.4f}").format(dc_usd*(1+self.margin)))
+            self.rs_usd_x.setText(("{0:.4f}").format(dc_usd*(1+margin_x)))
         if current_obj != self.rs_eur_x:        
-            self.rs_eur_x.setText(("{0:.4f}").format(dc_eur*(1+self.margin)))        
+            self.rs_eur_x.setText(("{0:.4f}").format(dc_eur*(1+margin_x)))        
 
     def update_cny(self):
         dc_cny = float(self.dc_cny.text())
@@ -172,32 +171,42 @@ class MyWindow(QMainWindow, Ui_MainWindow):
 
     def update_rs_cny_x(self):
         rs_cny_x = float(self.rs_cny_x.text())
-        dc_eur = (rs_cny_x/(1+self.margin)) * self.cny_eur 
+        margin_x = float(self.margin_x.text()) / 100
+        
+        dc_eur = (rs_cny_x/(1+margin_x)) * self.cny_eur 
         
         self.update_quotation(self.rs_cny_x, dc_eur)
 
     def update_rs_cny_vat_x(self):
         rs_cny_vat_x = float(self.rs_cny_vat_x.text())
-        dc_eur = (rs_cny_vat_x/1.13/(1+self.margin)) * self.cny_eur 
+        margin_x = float(self.margin_x.text()) / 100
+        vat_x = float(self.vat_x.text()) / 100
+
+        dc_eur = (rs_cny_vat_x/(1+vat_x)/(1+margin_x)) * self.cny_eur 
 
         self.update_quotation(self.rs_cny_vat_x, dc_eur)
 
     def update_rs_usd_x(self):
         rs_usd_x = float(self.rs_usd_x.text())
-        dc_eur = (rs_usd_x/(1+self.margin)) * self.usd_eur 
+        margin_x = float(self.margin_x.text()) / 100
+
+        dc_eur = (rs_usd_x/(1+margin_x)) * self.usd_eur 
         
         self.update_quotation(self.rs_usd_x, dc_eur)
 
     def update_rs_eur_x(self):
         rs_eur_x = float(self.rs_eur_x.text())
-        dc_eur = rs_eur_x/(1+self.margin) 
+        margin_x = float(self.margin_x.text()) / 100
+
+        dc_eur = rs_eur_x/(1+margin_x) 
         
         self.update_quotation(self.rs_eur_x, dc_eur)   
 
     def update_margin(self):
-        self.margin = float(self.margin_x.text()) / 100
         self.update_quotation(self.margin_x, float(self.dc_eur.text()))
 
+    def update_vat(self):
+        self.update_quotation(self.vat_x, float(self.dc_eur.text()))
 
     def update_exchange_rate(self, time):
         #1 CNY
@@ -214,7 +223,8 @@ class MyWindow(QMainWindow, Ui_MainWindow):
 
         self.quotation_group.setEnabled(True)    
 
-        self.margin_15.setEnabled(False)       
+        self.margin_15.setEnabled(False)
+        self.vat_13.setEnabled(False)       
 
         self.dc_eur.setEnabled(True)           
         self.dc_usd.setEnabled(True)           
@@ -335,12 +345,14 @@ class MyWindow(QMainWindow, Ui_MainWindow):
    
 
     def print_quotation(self):
+        margin_x = float(self.margin_x.text()) / 100
+
         localtime = time.asctime(time.localtime(time.time()))
         print(localtime)
 
         print("Disty Cost: {0:.4f}EUR = {1:.4f}USD = {2:.4f}CNY".format(float(self.dc_eur.text()), float(self.dc_usd.text()), float(self.dc_cny.text())))
         print("Resalse[15%]: {0:.4f}EUR = {1:.4f}USD = {2:.4f}CNY".format(float(self.rs_eur_15.text()), float(self.rs_usd_15.text()), float(self.rs_cny_15.text())))
-        print("Resalse[{3}%]: {0:.4f}EUR = {1:.4f}USD = {2:.4f}CNY".format(float(self.rs_eur_x.text()), float(self.rs_usd_x.text()), float(self.rs_cny_x.text()), self.margin*100))
+        print("Resalse[{3}%]: {0:.4f}EUR = {1:.4f}USD = {2:.4f}CNY".format(float(self.rs_eur_x.text()), float(self.rs_usd_x.text()), float(self.rs_cny_x.text()), margin_x*100))
 
     def save_exchange_rate(self):
         f = open("exchange_rate.txt", "w") 
