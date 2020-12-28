@@ -1,0 +1,42 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "pyuic5",
+            "type": "shell",
+            "command": "pyuic5",
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "args": [
+                "main_window.ui",
+                "-o",
+                "main_window.py"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+
+        {
+            "label": "py",
+            "type": "shell",
+            "command": "py",
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "args": [
+                "-3.8-64",
+                "${file}"
+                // "easy_quotation.py"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ]
+}
