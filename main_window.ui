@@ -1012,7 +1012,7 @@
    <sender>price_50k</sender>
    <signal>clicked()</signal>
    <receiver>MainWindow</receiver>
-   <slot>price_50k_clicked()</slot>
+   <slot>price_x_clicked()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>44</x>
@@ -1028,7 +1028,7 @@
    <sender>price_100k</sender>
    <signal>clicked()</signal>
    <receiver>MainWindow</receiver>
-   <slot>price_100k_clicked()</slot>
+   <slot>price_x_clicked()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>136</x>
@@ -1044,7 +1044,7 @@
    <sender>price_250k</sender>
    <signal>clicked()</signal>
    <receiver>MainWindow</receiver>
-   <slot>price_250k_clicked()</slot>
+   <slot>price_x_clicked()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>198</x>
@@ -1060,7 +1060,7 @@
    <sender>price_500k</sender>
    <signal>clicked()</signal>
    <receiver>MainWindow</receiver>
-   <slot>price_500k_clicked()</slot>
+   <slot>price_x_clicked()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>299</x>
@@ -1076,7 +1076,7 @@
    <sender>price_1m</sender>
    <signal>clicked()</signal>
    <receiver>MainWindow</receiver>
-   <slot>price_1m_clicked()</slot>
+   <slot>price_x_clicked()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>378</x>
@@ -1092,7 +1092,7 @@
    <sender>price_2_5m</sender>
    <signal>clicked()</signal>
    <receiver>MainWindow</receiver>
-   <slot>price_2_5m_clicked()</slot>
+   <slot>price_x_clicked()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>455</x>
@@ -1108,7 +1108,7 @@
    <sender>price_5m</sender>
    <signal>clicked()</signal>
    <receiver>MainWindow</receiver>
-   <slot>price_5m_clicked()</slot>
+   <slot>price_x_clicked()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>542</x>
@@ -1124,7 +1124,7 @@
    <sender>price_10m</sender>
    <signal>clicked()</signal>
    <receiver>MainWindow</receiver>
-   <slot>price_10m_clicked()</slot>
+   <slot>price_x_clicked()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>628</x>
@@ -1167,13 +1167,6 @@
   <slot>order_number_text_edited()</slot>
   <slot>list_view_clicked()</slot>
   <slot>update_vat()</slot>
-  <slot>price_100k_clicked()</slot>
-  <slot>price_50k_clicked()</slot>
-  <slot>price_250k_clicked()</slot>
-  <slot>price_500k_clicked()</slot>
-  <slot>price_1m_clicked()</slot>
-  <slot>price_5m_clicked()</slot>
-  <slot>price_10m_clicked()</slot>
-  <slot>price_2_5m_clicked()</slot>
+  <slot>price_x_clicked()</slot>
  </slots>
 </ui>

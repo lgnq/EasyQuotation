@@ -6,7 +6,7 @@ from forex_python.converter import CurrencyRates
 import sys
 import os
 
-from PyQt5.QtWidgets import QApplication, QMainWindow
+from PyQt5.QtWidgets import QApplication, QMainWindow, QPushButton
 from main_window import *
 
 import re
@@ -65,53 +65,12 @@ class MyWindow(QMainWindow, Ui_MainWindow):
             self.price_5m.setText("EUR 0.000") 
             self.price_10m.setText("EUR 0.000")             
 
-    def price_50k_clicked(self):
-        data = self.price_50k.text().split(' ')
+    def price_x_clicked(self):
+        button = self.findChild(QPushButton, self.sender().objectName())
+        data = button.text().split(' ')
         price = float(data[1])
 
-        self.update_quotation(self.price_50k, price)
-
-    def price_100k_clicked(self):
-        data = self.price_100k.text().split(' ')
-        price = float(data[1])
-
-        self.update_quotation(self.price_100k, price)
-
-    def price_250k_clicked(self):
-        data = self.price_250k.text().split(' ')
-        price = float(data[1])
-
-        self.update_quotation(self.price_250k, price)
-
-    def price_500k_clicked(self):
-        data = self.price_500k.text().split(' ')
-        price = float(data[1])
-
-        self.update_quotation(self.price_500k, price)
-
-    def price_1m_clicked(self):
-        data = self.price_1m.text().split(' ')
-        price = float(data[1])
-
-        self.update_quotation(self.price_1m, price)
-
-    def price_2_5m_clicked(self):
-        data = self.price_2_5m.text().split(' ')
-        price = float(data[1])
-
-        self.update_quotation(self.price_2_5m, price)
-    
-    def price_5m_clicked(self):
-        data = self.price_5m.text().split(' ')
-        price = float(data[1])
-
-        self.update_quotation(self.price_5m, price)
-
-    def price_10m_clicked(self):
-        data = self.price_10m.text().split(' ')
-        price = float(data[1])
-
-        self.update_quotation(self.price_10m, price)
+        self.update_quotation(button, price)
 
     def update_price_list(self, order_number):
         self.price_50k.setEnabled(True)
