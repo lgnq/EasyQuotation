@@ -376,8 +376,8 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         print(localtime)
 
         print("Disty Cost: {0:.4f}EUR = {1:.4f}USD = {2:.4f}CNY".format(float(self.dc_eur.text()), float(self.dc_usd.text()), float(self.dc_cny.text())))
-        print("Resalse[{3}%]: {0:.4f}EUR = {1:.4f}USD = {2:.4f}CNY".format(float(self.rs_eur.text()), float(self.rs_usd.text()), float(self.rs_cny.text()), margin*100))
-        print("Resalse[{3}%] standard: {0:.4f}EUR = {1:.4f}USD = {2:.4f}CNY".format(float(self.rs_eur_x.text()), float(self.rs_usd_x.text()), float(self.rs_cny_x.text()), margin_x*100))
+        print("Resale[{3}%]: {0:.4f}EUR = {1:.4f}USD = {2:.4f}CNY".format(float(self.rs_eur.text()), float(self.rs_usd.text()), float(self.rs_cny.text()), margin*100))
+        print("Resale[{3}%] standard: {0:.4f}EUR = {1:.4f}USD = {2:.4f}CNY".format(float(self.rs_eur_x.text()), float(self.rs_usd_x.text()), float(self.rs_cny_x.text()), margin_x*100))
 
     def save_exchange_rate(self):
         f = open("exchange_rate.txt", "w") 

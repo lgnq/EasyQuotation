@@ -376,7 +376,7 @@
        <item>
         <widget class="QGroupBox" name="groupBox_3">
          <property name="title">
-          <string>Resalse Price</string>
+          <string>Resale Price</string>
          </property>
          <layout class="QGridLayout" name="gridLayout_2">
           <item row="9" column="0">
@@ -469,7 +469,7 @@
        <item>
         <widget class="QGroupBox" name="groupBox_5">
          <property name="title">
-          <string>Resalse Price(standard) </string>
+          <string>Resale Price(standard) </string>
          </property>
          <layout class="QGridLayout" name="gridLayout_4">
           <item row="7" column="1">
