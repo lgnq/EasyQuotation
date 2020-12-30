@@ -376,7 +376,7 @@
        <item>
         <widget class="QGroupBox" name="groupBox_3">
          <property name="title">
-          <string>Resalse</string>
+          <string>Resalse Price</string>
          </property>
          <layout class="QGridLayout" name="gridLayout_2">
           <item row="9" column="0">
@@ -387,14 +387,14 @@
            </widget>
           </item>
           <item row="9" column="1">
-           <widget class="QLineEdit" name="rs_eur_15">
+           <widget class="QLineEdit" name="rs_eur">
             <property name="enabled">
              <bool>false</bool>
             </property>
            </widget>
           </item>
           <item row="4" column="1">
-           <widget class="QLineEdit" name="rs_cny_vat_15">
+           <widget class="QLineEdit" name="rs_cny_vat">
             <property name="enabled">
              <bool>false</bool>
             </property>
@@ -408,14 +408,14 @@
            </widget>
           </item>
           <item row="8" column="1">
-           <widget class="QLineEdit" name="rs_usd_15">
+           <widget class="QLineEdit" name="rs_usd">
             <property name="enabled">
              <bool>false</bool>
             </property>
            </widget>
           </item>
           <item row="6" column="1">
-           <widget class="QLineEdit" name="rs_cny_15">
+           <widget class="QLineEdit" name="rs_cny">
             <property name="enabled">
              <bool>false</bool>
             </property>
@@ -436,7 +436,7 @@
            </widget>
           </item>
           <item row="1" column="1">
-           <widget class="QLineEdit" name="vat_13">
+           <widget class="QLineEdit" name="vat">
             <property name="text">
              <string>13</string>
             </property>
@@ -457,7 +457,7 @@
            </widget>
           </item>
           <item row="0" column="1">
-           <widget class="QLineEdit" name="margin_15">
+           <widget class="QLineEdit" name="margin">
             <property name="text">
              <string>15</string>
             </property>
@@ -469,7 +469,7 @@
        <item>
         <widget class="QGroupBox" name="groupBox_5">
          <property name="title">
-          <string>Resalse</string>
+          <string>Resalse Price(standard) </string>
          </property>
          <layout class="QGridLayout" name="gridLayout_4">
           <item row="7" column="1">
@@ -705,10 +705,10 @@
    </hints>
   </connection>
   <connection>
-   <sender>rs_cny_15</sender>
+   <sender>rs_cny</sender>
    <signal>textEdited(QString)</signal>
    <receiver>MainWindow</receiver>
-   <slot>update_rs_cny_15()</slot>
+   <slot>update_rs_cny()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>258</x>
@@ -721,10 +721,10 @@
    </hints>
   </connection>
   <connection>
-   <sender>rs_usd_15</sender>
+   <sender>rs_usd</sender>
    <signal>textEdited(QString)</signal>
    <receiver>MainWindow</receiver>
-   <slot>update_rs_usd_15()</slot>
+   <slot>update_rs_usd()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>258</x>
@@ -737,10 +737,10 @@
    </hints>
   </connection>
   <connection>
-   <sender>rs_eur_15</sender>
+   <sender>rs_eur</sender>
    <signal>textEdited(QString)</signal>
    <receiver>MainWindow</receiver>
-   <slot>update_rs_eur_15()</slot>
+   <slot>update_rs_eur()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>258</x>
@@ -785,10 +785,10 @@
    </hints>
   </connection>
   <connection>
-   <sender>rs_cny_vat_15</sender>
+   <sender>rs_cny_vat</sender>
    <signal>textEdited(QString)</signal>
    <receiver>MainWindow</receiver>
-   <slot>update_rs_cny_vat_15()</slot>
+   <slot>update_rs_cny_vat()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>258</x>
@@ -868,7 +868,7 @@
    <sender>margin_x</sender>
    <signal>textEdited(QString)</signal>
    <receiver>MainWindow</receiver>
-   <slot>update_margin()</slot>
+   <slot>update_margin_x()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>476</x>
@@ -996,7 +996,7 @@
    <sender>vat_x</sender>
    <signal>textEdited(QString)</signal>
    <receiver>MainWindow</receiver>
-   <slot>update_vat()</slot>
+   <slot>update_vat_x()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>486</x>
@@ -1136,23 +1136,51 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>margin</sender>
+   <signal>textEdited(QString)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>update_margin()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>276</x>
+     <y>374</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>292</x>
+     <y>662</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>vat</sender>
+   <signal>textEdited(QString)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>update_vat()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>310</x>
+     <y>394</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>256</x>
+     <y>643</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>update_cny()</slot>
   <slot>update_usd()</slot>
   <slot>update_eur()</slot>
   <slot>clear()</slot>
-  <slot>update_rs_cny_15()</slot>
-  <slot>update_rs_usd_15()</slot>
-  <slot>update_rs_eur_15()</slot>
+  <slot>update_rs_cny()</slot>
+  <slot>update_rs_usd()</slot>
+  <slot>update_rs_eur()</slot>
   <slot>hexun_update()</slot>
   <slot>forex_update()</slot>
   <slot>search()</slot>
-  <slot>update_rs_cny_vat_15()</slot>
-  <slot>update_rs_eur_10()</slot>
-  <slot>update_rs_usd_10()</slot>
-  <slot>update_rs_cny_10()</slot>
-  <slot>update_rs_cny_vat_10()</slot>
+  <slot>update_rs_cny_vat()</slot>
   <slot>update_rs_eur_x()</slot>
   <slot>update_rs_usd_x()</slot>
   <slot>update_rs_cny_x()</slot>
@@ -1168,5 +1196,7 @@
   <slot>list_view_clicked()</slot>
   <slot>update_vat()</slot>
   <slot>price_x_clicked()</slot>
+  <slot>update_margin_x()</slot>
+  <slot>update_vat_x()</slot>
  </slots>
 </ui>
