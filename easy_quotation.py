@@ -150,21 +150,30 @@ class MyWindow(QMainWindow, Ui_MainWindow):
             self.rs_eur_x.setText(("{0:.4f}").format(dc_eur/(1-margin_x)))        
 
     def update_cny(self):
-        dc_cny = float(self.dc_cny.text())
-        dc_eur = dc_cny * self.cny_eur 
-        
+        if self.dc_cny.text() != '':
+            dc_cny = float(self.dc_cny.text())
+            dc_eur = dc_cny * self.cny_eur 
+        else:
+            dc_eur = 0
+
         self.update_quotation(self.dc_cny, dc_eur)
 
-
     def update_usd(self):
-        dc_usd = float(self.dc_usd.text())
-        dc_eur = dc_usd * self.usd_eur 
+        if self.dc_usd.text() != '':
+            dc_usd = float(self.dc_usd.text())
+            dc_eur = dc_usd * self.usd_eur 
+        else:
+            dc_eur = 0
         
-        self.update_quotation(self.dc_usd, dc_eur)  
+        self.update_quotation(self.dc_usd, dc_eur)
 
     def update_eur(self):
-        self.update_quotation(self.dc_eur, float(self.dc_eur.text()))
-  
+        if self.dc_eur.text() != '':
+            dc_eur = float(self.dc_eur.text())
+        else:
+            dc_eur = 0
+
+        self.update_quotation(self.dc_eur, dc_eur)
 
     def update_rs_cny(self):
         margin = float(self.margin.text()) / 100
