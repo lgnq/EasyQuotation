@@ -385,7 +385,7 @@ class Ui_MainWindow(object):
         self.label_15.setText(_translate("MainWindow", "EUR:"))
         self.label_13.setText(_translate("MainWindow", "CNY:"))
         self.label_5.setText(_translate("MainWindow", "Margin %:"))
-        self.margin_x.setText(_translate("MainWindow", "8"))
+        self.margin_x.setText(_translate("MainWindow", "15"))
         self.label_18.setText(_translate("MainWindow", "CNY(VAT):"))
         self.label_14.setText(_translate("MainWindow", "USD:"))
         self.label_11.setText(_translate("MainWindow", "VAT %:"))
