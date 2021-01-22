@@ -102,6 +102,9 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         self.cbr_line.setData(y=CBR[::-1])
         self.ttsr_line.setData(y=TTSR[::-1])
 
+        self.statusbar.showMessage("Exchange Rate refresh on {}, source from {}".format(self.dateEdit_2.text(), "CMBChina"))
+
+
     def currency_code_changed(self):
         if self.currency_code.currentIndex() == 0:  #EUR
             self.current_currency_code = "6B27"
