@@ -23,6 +23,8 @@ import urllib.request
 
 import pyqtgraph as pg
 
+from PyQt5.QtCore import QDate
+
 class MyWindow(QMainWindow, Ui_MainWindow):
     def __init__(self, parent=None):
         super(MyWindow, self).__init__(parent)
@@ -35,6 +37,10 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         self.sheet = self.wb.sheet_by_index(0)
 
         self.qList = []
+
+        # self.dateEdit.setDate('1/1/2020')
+        self.dateEdit_2.setDate(QDate.currentDate())
+        self.current_currency_code = "6B27" #EUR
 
         self.exchange_rate_setup()
 
@@ -57,12 +63,22 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         self.ttsr_line = self.graphicsView.plot(name='Telegraphic Transfer Selling Rate[Cash Selling Rate]', pen=pen, symbol='+')        
 
     def refresh(self):
-        current_date    = time.localtime(time.time())
-        start   = "{}-01-01".format(current_date.tm_year-1)
-        end     = "{}-{}-{}".format(current_date.tm_year, current_date.tm_mon, current_date.tm_mday)
+        if self.current_currency_code == '6B27':    #EUR
+            self.graphicsView.setTitle("欧元兑人民币日线图", color='k')
+        elif self.current_currency_code == '7F8E':    #USD
+            self.graphicsView.setTitle("美元兑人民币日线图", color='k')
+        
+        dat = self.dateEdit.text().split('/')
+        start = "{}-{}-{}".format(dat[2], dat[0], dat[1])
+        
+        dat = self.dateEdit_2.text().split('/')
+        end = "{}-{}-{}".format(dat[2], dat[0], dat[1])
         
         headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:23.0) Gecko/20100101 Firefox/23.0'}
-        url     = "http://fx.cmbchina.com/hq/History.aspx?startdate="+start+"&enddate="+end+"&nbr=%u6B27%u5143&type=days"
+
+        #USD - http://fx.cmbchina.com/hq/History.aspx?startdate=2020-12-02&enddate=2021-01-20&nbr=%u7F8E%u5143&type=days
+        #EUR - http://fx.cmbchina.com/hq/History.aspx?startdate=2020-12-02&enddate=2021-01-20&nbr=%u6B27%u5143&type=days
+        url     = "http://fx.cmbchina.com/hq/History.aspx?startdate="+start+"&enddate="+end+"&nbr=%u"+self.current_currency_code+"%u5143&type=days"
         req     = urllib.request.Request(url, headers = headers)
 
         f = urllib.request.urlopen(req)
@@ -85,6 +101,14 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         self.ttbr_line.setData(y=TTBR[::-1])
         self.cbr_line.setData(y=CBR[::-1])
         self.ttsr_line.setData(y=TTSR[::-1])
+
+    def currency_code_changed(self):
+        if self.currency_code.currentIndex() == 0:  #EUR
+            self.current_currency_code = "6B27"
+            # self.graphicsView.setTitle("欧元兑人民币日线图", color='k')
+        elif self.currency_code.currentIndex() == 1:  #USD
+            self.current_currency_code = "7F8E"
+            # self.graphicsView.setTitle("美元兑人民币日线图", color='k')
 
     def about(self):
         print("about")

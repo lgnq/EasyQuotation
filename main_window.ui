@@ -662,7 +662,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QComboBox" name="comboBox">
+           <widget class="QComboBox" name="currency_code">
             <item>
              <property name="text">
               <string>EUR</string>
@@ -1302,6 +1302,22 @@ p, li { white-space: pre-wrap; }
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>currency_code</sender>
+   <signal>currentIndexChanged(int)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>currency_code_changed()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>352</x>
+     <y>55</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>804</x>
+     <y>440</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>update_cny()</slot>
@@ -1333,5 +1349,6 @@ p, li { white-space: pre-wrap; }
   <slot>update_margin_x()</slot>
   <slot>update_vat_x()</slot>
   <slot>refresh()</slot>
+  <slot>currency_code_changed()</slot>
  </slots>
 </ui>
