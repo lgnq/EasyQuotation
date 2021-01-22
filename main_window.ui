@@ -21,7 +21,7 @@
     <item>
      <widget class="QTabWidget" name="tabWidget">
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="tab">
        <attribute name="title">
@@ -719,8 +719,8 @@ p, li { white-space: pre-wrap; }
    <slot>clear()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>659</x>
-     <y>518</y>
+     <x>670</x>
+     <y>644</y>
     </hint>
     <hint type="destinationlabel">
      <x>511</x>
@@ -735,8 +735,8 @@ p, li { white-space: pre-wrap; }
    <slot>update_cny()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>116</x>
-     <y>454</y>
+     <x>177</x>
+     <y>583</y>
     </hint>
     <hint type="destinationlabel">
      <x>356</x>
@@ -751,8 +751,8 @@ p, li { white-space: pre-wrap; }
    <slot>update_usd()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>116</x>
-     <y>480</y>
+     <x>177</x>
+     <y>609</y>
     </hint>
     <hint type="destinationlabel">
      <x>262</x>
@@ -767,8 +767,8 @@ p, li { white-space: pre-wrap; }
    <slot>update_eur()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>116</x>
-     <y>506</y>
+     <x>177</x>
+     <y>635</y>
     </hint>
     <hint type="destinationlabel">
      <x>217</x>
@@ -783,8 +783,8 @@ p, li { white-space: pre-wrap; }
    <slot>update_rs_cny()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>258</x>
-     <y>454</y>
+     <x>381</x>
+     <y>583</y>
     </hint>
     <hint type="destinationlabel">
      <x>511</x>
@@ -799,8 +799,8 @@ p, li { white-space: pre-wrap; }
    <slot>update_rs_usd()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>258</x>
-     <y>480</y>
+     <x>381</x>
+     <y>609</y>
     </hint>
     <hint type="destinationlabel">
      <x>511</x>
@@ -815,8 +815,8 @@ p, li { white-space: pre-wrap; }
    <slot>update_rs_eur()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>258</x>
-     <y>506</y>
+     <x>381</x>
+     <y>635</y>
     </hint>
     <hint type="destinationlabel">
      <x>511</x>
@@ -831,8 +831,8 @@ p, li { white-space: pre-wrap; }
    <slot>hexun_update()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>579</x>
-     <y>268</y>
+     <x>590</x>
+     <y>394</y>
     </hint>
     <hint type="destinationlabel">
      <x>511</x>
@@ -847,8 +847,8 @@ p, li { white-space: pre-wrap; }
    <slot>forex_update()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>579</x>
-     <y>297</y>
+     <x>590</x>
+     <y>423</y>
     </hint>
     <hint type="destinationlabel">
      <x>511</x>
@@ -863,8 +863,8 @@ p, li { white-space: pre-wrap; }
    <slot>update_rs_cny_vat()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>258</x>
-     <y>428</y>
+     <x>381</x>
+     <y>557</y>
     </hint>
     <hint type="destinationlabel">
      <x>209</x>
@@ -879,8 +879,8 @@ p, li { white-space: pre-wrap; }
    <slot>update_rs_usd_x()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>511</x>
-     <y>483</y>
+     <x>578</x>
+     <y>609</y>
     </hint>
     <hint type="destinationlabel">
      <x>511</x>
@@ -895,8 +895,8 @@ p, li { white-space: pre-wrap; }
    <slot>update_rs_cny_x()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>511</x>
-     <y>457</y>
+     <x>578</x>
+     <y>583</y>
     </hint>
     <hint type="destinationlabel">
      <x>511</x>
@@ -911,8 +911,8 @@ p, li { white-space: pre-wrap; }
    <slot>update_rs_cny_vat_x()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>511</x>
-     <y>431</y>
+     <x>578</x>
+     <y>557</y>
     </hint>
     <hint type="destinationlabel">
      <x>490</x>
@@ -927,8 +927,8 @@ p, li { white-space: pre-wrap; }
    <slot>update_rs_eur_x()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>511</x>
-     <y>509</y>
+     <x>578</x>
+     <y>635</y>
     </hint>
     <hint type="destinationlabel">
      <x>511</x>
@@ -943,8 +943,8 @@ p, li { white-space: pre-wrap; }
    <slot>update_margin_x()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>476</x>
-     <y>368</y>
+     <x>578</x>
+     <y>505</y>
     </hint>
     <hint type="destinationlabel">
      <x>511</x>
@@ -959,8 +959,8 @@ p, li { white-space: pre-wrap; }
    <slot>print_quotation()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>659</x>
-     <y>460</y>
+     <x>670</x>
+     <y>586</y>
     </hint>
     <hint type="destinationlabel">
      <x>511</x>
@@ -975,8 +975,8 @@ p, li { white-space: pre-wrap; }
    <slot>save_exchange_rate()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>638</x>
-     <y>262</y>
+     <x>671</x>
+     <y>394</y>
     </hint>
     <hint type="destinationlabel">
      <x>511</x>
@@ -991,8 +991,8 @@ p, li { white-space: pre-wrap; }
    <slot>load_exchange_rate()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>634</x>
-     <y>286</y>
+     <x>671</x>
+     <y>423</y>
     </hint>
     <hint type="destinationlabel">
      <x>511</x>
@@ -1039,8 +1039,8 @@ p, li { white-space: pre-wrap; }
    <slot>order_number_text_edited()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>290</x>
-     <y>61</y>
+     <x>473</x>
+     <y>82</y>
     </hint>
     <hint type="destinationlabel">
      <x>0</x>
@@ -1071,8 +1071,8 @@ p, li { white-space: pre-wrap; }
    <slot>update_vat_x()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>486</x>
-     <y>396</y>
+     <x>578</x>
+     <y>531</y>
     </hint>
     <hint type="destinationlabel">
      <x>380</x>
@@ -1087,11 +1087,11 @@ p, li { white-space: pre-wrap; }
    <slot>price_x_clicked()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>44</x>
-     <y>197</y>
+     <x>65</x>
+     <y>332</y>
     </hint>
     <hint type="destinationlabel">
-     <x>-30</x>
+     <x>0</x>
      <y>322</y>
     </hint>
    </hints>
@@ -1103,11 +1103,11 @@ p, li { white-space: pre-wrap; }
    <slot>price_x_clicked()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>136</x>
-     <y>201</y>
+     <x>185</x>
+     <y>332</y>
     </hint>
     <hint type="destinationlabel">
-     <x>-10</x>
+     <x>0</x>
      <y>382</y>
     </hint>
    </hints>
@@ -1119,11 +1119,11 @@ p, li { white-space: pre-wrap; }
    <slot>price_x_clicked()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>198</x>
-     <y>196</y>
+     <x>266</x>
+     <y>332</y>
     </hint>
     <hint type="destinationlabel">
-     <x>-50</x>
+     <x>0</x>
      <y>418</y>
     </hint>
    </hints>
@@ -1135,11 +1135,11 @@ p, li { white-space: pre-wrap; }
    <slot>price_x_clicked()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>299</x>
-     <y>199</y>
+     <x>347</x>
+     <y>332</y>
     </hint>
     <hint type="destinationlabel">
-     <x>-39</x>
+     <x>0</x>
      <y>349</y>
     </hint>
    </hints>
@@ -1151,11 +1151,11 @@ p, li { white-space: pre-wrap; }
    <slot>price_x_clicked()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>378</x>
-     <y>203</y>
+     <x>428</x>
+     <y>332</y>
     </hint>
     <hint type="destinationlabel">
-     <x>-116</x>
+     <x>0</x>
      <y>304</y>
     </hint>
    </hints>
@@ -1167,11 +1167,11 @@ p, li { white-space: pre-wrap; }
    <slot>price_x_clicked()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>455</x>
-     <y>204</y>
+     <x>509</x>
+     <y>332</y>
     </hint>
     <hint type="destinationlabel">
-     <x>-105</x>
+     <x>0</x>
      <y>262</y>
     </hint>
    </hints>
@@ -1183,11 +1183,11 @@ p, li { white-space: pre-wrap; }
    <slot>price_x_clicked()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>542</x>
-     <y>201</y>
+     <x>590</x>
+     <y>332</y>
     </hint>
     <hint type="destinationlabel">
-     <x>-181</x>
+     <x>0</x>
      <y>243</y>
     </hint>
    </hints>
@@ -1199,11 +1199,11 @@ p, li { white-space: pre-wrap; }
    <slot>price_x_clicked()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>628</x>
-     <y>203</y>
+     <x>671</x>
+     <y>332</y>
     </hint>
     <hint type="destinationlabel">
-     <x>-160</x>
+     <x>0</x>
      <y>369</y>
     </hint>
    </hints>
@@ -1215,8 +1215,8 @@ p, li { white-space: pre-wrap; }
    <slot>update_margin()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>276</x>
-     <y>374</y>
+     <x>381</x>
+     <y>505</y>
     </hint>
     <hint type="destinationlabel">
      <x>292</x>
@@ -1231,12 +1231,28 @@ p, li { white-space: pre-wrap; }
    <slot>update_vat()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>310</x>
-     <y>394</y>
+     <x>381</x>
+     <y>531</y>
     </hint>
     <hint type="destinationlabel">
      <x>256</x>
      <y>643</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_4</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>refresh()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>631</x>
+     <y>51</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>870</x>
+     <y>310</y>
     </hint>
    </hints>
   </connection>
@@ -1270,5 +1286,6 @@ p, li { white-space: pre-wrap; }
   <slot>price_x_clicked()</slot>
   <slot>update_margin_x()</slot>
   <slot>update_vat_x()</slot>
+  <slot>refresh()</slot>
  </slots>
 </ui>

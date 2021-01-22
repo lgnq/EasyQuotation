@@ -42,6 +42,9 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         self.graphicsView.setLabel('bottom', text='time', units='s')  # x轴设置函数
         # p1.addLegend()  # 可选择是否添加legend
 
+    def refresh(self):
+        print("refresh")
+
     def about(self):
         print("about")
 
