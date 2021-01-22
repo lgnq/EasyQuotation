@@ -49,6 +49,13 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         self.graphicsView.setLogMode(x=False, y=False)  # False代表线性坐标轴，True代表对数坐标轴
         self.graphicsView.addLegend()  # 可选择是否添加legend
 
+        pen = pg.mkPen(color=(255, 0, 0))
+        self.ttbr_line = self.graphicsView.plot(name='Telegraphic Transfer Buying Rate', pen=pen, symbol='+')
+        pen = pg.mkPen(color=(255, 255, 0))
+        self.cbr_line = self.graphicsView.plot(name='Cash Buying Rate', pen=pen, symbol='+')
+        pen = pg.mkPen(color=(255, 0, 255))
+        self.ttsr_line = self.graphicsView.plot(name='Telegraphic Transfer Selling Rate[Cash Selling Rate]', pen=pen, symbol='+')        
+
     def refresh(self):
         current_date    = time.localtime(time.time())
         start   = "{}-01-01".format(current_date.tm_year-1)
@@ -75,14 +82,9 @@ class MyWindow(QMainWindow, Ui_MainWindow):
             TTSR.append(float(data[i*4+2]))
             # CSR.append(float(data[i*4+3]))
 
-        # plt.plot(date[::-1], TTBR[::-1], label='Telegraphic Transfer Buying Rate')
-        # pen = pg.mkPen(color=(255, 0, 0), width=5, style=QtCore.Qt.DashLine)
-        pen = pg.mkPen(color=(255, 0, 0))
-        self.graphicsView.plot(y=TTBR[::-1], name='Telegraphic Transfer Buying Rate', pen=pen, symbol='+')
-        pen = pg.mkPen(color=(255, 255, 0))
-        self.graphicsView.plot(y=CBR[::-1], name='Cash Buying Rate', pen=pen, symbol='+')
-        pen = pg.mkPen(color=(255, 0, 255))
-        self.graphicsView.plot(y=TTSR[::-1], name='Telegraphic Transfer Selling Rate[Cash Selling Rate]', pen=pen, symbol='+')
+        self.ttbr_line.setData(y=TTBR[::-1])
+        self.cbr_line.setData(y=CBR[::-1])
+        self.ttsr_line.setData(y=TTSR[::-1])
 
     def about(self):
         print("about")
