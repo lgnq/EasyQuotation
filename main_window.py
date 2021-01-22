@@ -317,6 +317,14 @@ class Ui_MainWindow(object):
         self.graphicsView.setObjectName("graphicsView")
         self.verticalLayout_4.addWidget(self.graphicsView)
         self.tabWidget.addTab(self.tab_2, "")
+        self.tab_3 = QtWidgets.QWidget()
+        self.tab_3.setObjectName("tab_3")
+        self.gridLayout_3 = QtWidgets.QGridLayout(self.tab_3)
+        self.gridLayout_3.setObjectName("gridLayout_3")
+        self.textEdit = QtWidgets.QTextEdit(self.tab_3)
+        self.textEdit.setObjectName("textEdit")
+        self.gridLayout_3.addWidget(self.textEdit, 0, 0, 1, 1)
+        self.tabWidget.addTab(self.tab_3, "")
         self.verticalLayout_2.addWidget(self.tabWidget)
         MainWindow.setCentralWidget(self.centralwidget)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
@@ -328,7 +336,7 @@ class Ui_MainWindow(object):
         self.actionClear.setObjectName("actionClear")
 
         self.retranslateUi(MainWindow)
-        self.tabWidget.setCurrentIndex(1)
+        self.tabWidget.setCurrentIndex(2)
         self.button_clear.clicked.connect(MainWindow.clear)
         self.dc_cny.textEdited['QString'].connect(MainWindow.update_cny)
         self.dc_usd.textEdited['QString'].connect(MainWindow.update_usd)
@@ -428,6 +436,16 @@ class Ui_MainWindow(object):
         self.label_19.setText(_translate("MainWindow", "Money"))
         self.pushButton_4.setText(_translate("MainWindow", "Refresh"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_2), _translate("MainWindow", "Exchange Rate"))
+        self.textEdit.setHtml(_translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Easy Quotation</p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Author: Eamon Fang</p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Date: 2021.01.22</p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>"))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_3), _translate("MainWindow", "About"))
         self.actionAbout.setText(_translate("MainWindow", "About"))
         self.actionClear.setText(_translate("MainWindow", "Clear"))
 from pyqtgraph import PlotWidget
