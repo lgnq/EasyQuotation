@@ -17,6 +17,12 @@ import xlrd
 import time 
 from PyQt5.QtCore import QStringListModel
 
+import time
+import re
+import urllib.request
+
+import pyqtgraph as pg
+
 class MyWindow(QMainWindow, Ui_MainWindow):
     def __init__(self, parent=None):
         super(MyWindow, self).__init__(parent)
@@ -33,17 +39,50 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         self.exchange_rate_setup()
 
     def exchange_rate_setup(self):
+        self.graphicsView.setTitle("欧元兑人民币日线图", color='k')
+
         self.graphicsView.setBackground('w')
 
-        # self.graphicsView.plot(title="sin 函数", x=[1, 2, 3, 4, 5], y=[1, 2, 3, 4, 5])  # 添加第一个绘图窗口
-        self.graphicsView.setLabel('left', text='meg', color='#ffffff')  # y轴设置函数
+        self.graphicsView.setLabel('left', text='CNY')  # y轴设置函数
+        self.graphicsView.setLabel('bottom', text='date', units='s')  # x轴设置函数
         self.graphicsView.showGrid(x=True, y=True)  # 栅格设置函数
         self.graphicsView.setLogMode(x=False, y=False)  # False代表线性坐标轴，True代表对数坐标轴
-        self.graphicsView.setLabel('bottom', text='time', units='s')  # x轴设置函数
-        # p1.addLegend()  # 可选择是否添加legend
+        self.graphicsView.addLegend()  # 可选择是否添加legend
 
     def refresh(self):
-        print("refresh")
+        current_date    = time.localtime(time.time())
+        start   = "{}-01-01".format(current_date.tm_year-1)
+        end     = "{}-{}-{}".format(current_date.tm_year, current_date.tm_mon, current_date.tm_mday)
+        
+        headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:23.0) Gecko/20100101 Firefox/23.0'}
+        url     = "http://fx.cmbchina.com/hq/History.aspx?startdate="+start+"&enddate="+end+"&nbr=%u6B27%u5143&type=days"
+        req     = urllib.request.Request(url, headers = headers)
+
+        f = urllib.request.urlopen(req)
+        html = f.read().decode("utf-8")
+
+        date = re.findall('<td align="center">(.*?)</td>', html)
+        data = re.findall('<td class="numberright">(.*?)</td>', html)
+
+        TTBR = []
+        CBR  = []
+        TTSR = []
+        CSR  = []
+        
+        for i in range(0, int(len(data)/4)):
+            TTBR.append(float(data[i*4]))
+            CBR.append(float(data[i*4+1]))
+            TTSR.append(float(data[i*4+2]))
+            # CSR.append(float(data[i*4+3]))
+
+        # plt.plot(date[::-1], TTBR[::-1], label='Telegraphic Transfer Buying Rate')
+        # pen = pg.mkPen(color=(255, 0, 0), width=5, style=QtCore.Qt.DashLine)
+        pen = pg.mkPen(color=(255, 0, 0))
+        self.graphicsView.plot(y=TTBR[::-1], pen=pen, symbol='+')
+        pen = pg.mkPen(color=(255, 255, 0))
+        self.graphicsView.plot(y=CBR[::-1], pen=pen, symbol='+')
+        pen = pg.mkPen(color=(255, 0, 255))
+        self.graphicsView.plot(y=TTSR[::-1], pen=pen, symbol='+')
 
     def about(self):
         print("about")
