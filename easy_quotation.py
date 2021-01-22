@@ -30,6 +30,29 @@ class MyWindow(QMainWindow, Ui_MainWindow):
 
         self.qList = []
 
+        self.graphicsView.setBackground('w')
+
+        # self.graphicsView.plot(title="sin 函数", x=[1, 2, 3, 4, 5], y=[1, 2, 3, 4, 5])  # 添加第一个绘图窗口
+        self.graphicsView.setLabel('left', text='meg', color='#ffffff')  # y轴设置函数
+        self.graphicsView.showGrid(x=True, y=True)  # 栅格设置函数
+        self.graphicsView.setLogMode(x=False, y=False)  # False代表线性坐标轴，True代表对数坐标轴
+        self.graphicsView.setLabel('bottom', text='time', units='s')  # x轴设置函数
+        # p1.addLegend()  # 可选择是否添加legend
+
+        # p1 = win.addPlot(title="sin 函数")  # 添加第一个绘图窗口
+        # p1.setLabel('left', text='meg', color='#ffffff')  # y轴设置函数
+        # p1.showGrid(x=True, y=True)  # 栅格设置函数
+        # p1.setLogMode(x=False, y=False)  # False代表线性坐标轴，True代表对数坐标轴
+        # p1.setLabel('bottom', text='time', units='s')  # x轴设置函数
+        # # p1.addLegend()  # 可选择是否添加legend
+
+        # win.nextRow()  # layout换行，采用垂直排列，不添加此行则默认水平排列
+        # p2 = win.addPlot(title="cos 函数")
+        # p2.setLabel('left', text='meg', color='#ffffff')
+        # p2.showGrid(x=True, y=True)
+        # p2.setLogMode(x=False, y=False)
+        # p2.setLabel('bottom', text='time', units='s')
+
     def about(self):
         print("about")
 
