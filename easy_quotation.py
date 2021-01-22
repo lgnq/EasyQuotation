@@ -43,8 +43,8 @@ class MyWindow(QMainWindow, Ui_MainWindow):
 
         self.graphicsView.setBackground('w')
 
-        self.graphicsView.setLabel('left', text='CNY')  # y轴设置函数
-        self.graphicsView.setLabel('bottom', text='date', units='s')  # x轴设置函数
+        self.graphicsView.setLabel('left', text='CNY', units='元')  # y轴设置函数
+        self.graphicsView.setLabel('bottom', text='date', units='day')  # x轴设置函数
         self.graphicsView.showGrid(x=True, y=True)  # 栅格设置函数
         self.graphicsView.setLogMode(x=False, y=False)  # False代表线性坐标轴，True代表对数坐标轴
         self.graphicsView.addLegend()  # 可选择是否添加legend
@@ -78,11 +78,11 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         # plt.plot(date[::-1], TTBR[::-1], label='Telegraphic Transfer Buying Rate')
         # pen = pg.mkPen(color=(255, 0, 0), width=5, style=QtCore.Qt.DashLine)
         pen = pg.mkPen(color=(255, 0, 0))
-        self.graphicsView.plot(y=TTBR[::-1], pen=pen, symbol='+')
+        self.graphicsView.plot(y=TTBR[::-1], name='Telegraphic Transfer Buying Rate', pen=pen, symbol='+')
         pen = pg.mkPen(color=(255, 255, 0))
-        self.graphicsView.plot(y=CBR[::-1], pen=pen, symbol='+')
+        self.graphicsView.plot(y=CBR[::-1], name='Cash Buying Rate', pen=pen, symbol='+')
         pen = pg.mkPen(color=(255, 0, 255))
-        self.graphicsView.plot(y=TTSR[::-1], pen=pen, symbol='+')
+        self.graphicsView.plot(y=TTSR[::-1], name='Telegraphic Transfer Selling Rate[Cash Selling Rate]', pen=pen, symbol='+')
 
     def about(self):
         print("about")
