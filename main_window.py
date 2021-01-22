@@ -15,7 +15,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.setEnabled(True)
-        MainWindow.resize(704, 822)
+        MainWindow.resize(704, 698)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.verticalLayout_2 = QtWidgets.QVBoxLayout(self.centralwidget)
@@ -336,7 +336,7 @@ class Ui_MainWindow(object):
         self.actionClear.setObjectName("actionClear")
 
         self.retranslateUi(MainWindow)
-        self.tabWidget.setCurrentIndex(2)
+        self.tabWidget.setCurrentIndex(0)
         self.button_clear.clicked.connect(MainWindow.clear)
         self.dc_cny.textEdited['QString'].connect(MainWindow.update_cny)
         self.dc_usd.textEdited['QString'].connect(MainWindow.update_usd)
