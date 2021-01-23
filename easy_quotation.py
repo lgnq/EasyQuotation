@@ -50,17 +50,17 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         self.graphicsView.setBackground('w')
 
         self.graphicsView.setLabel('left', text='CNY', units='元')  # y轴设置函数
-        self.graphicsView.setLabel('bottom', text='date', units='day')  # x轴设置函数
+        # self.graphicsView.setLabel('bottom', text='date', units='day')  # x轴设置函数
         self.graphicsView.showGrid(x=True, y=True)  # 栅格设置函数
         self.graphicsView.setLogMode(x=False, y=False)  # False代表线性坐标轴，True代表对数坐标轴
         self.graphicsView.addLegend()  # 可选择是否添加legend
 
-        pen = pg.mkPen(color=(255, 0, 0))
-        self.ttbr_line = self.graphicsView.plot(name='Telegraphic Transfer Buying Rate', pen=pen, symbol='+')
-        pen = pg.mkPen(color=(255, 255, 0))
-        self.cbr_line = self.graphicsView.plot(name='Cash Buying Rate', pen=pen, symbol='+')
-        pen = pg.mkPen(color=(255, 0, 255))
-        self.ttsr_line = self.graphicsView.plot(name='Telegraphic Transfer Selling Rate[Cash Selling Rate]', pen=pen, symbol='+')        
+        # pen = pg.mkPen(color=(255, 0, 0))
+        self.ttbr_line = self.graphicsView.plot(name='Telegraphic Transfer Buying Rate', pen='b', symbol='+')
+        # pen = pg.mkPen(color=(255, 255, 0))
+        self.cbr_line = self.graphicsView.plot(name='Cash Buying Rate', pen='g', symbol='+')
+        # pen = pg.mkPen(color=(255, 0, 255))
+        self.ttsr_line = self.graphicsView.plot(name='Telegraphic Transfer Selling Rate[Cash Selling Rate]', pen='r', symbol='o')  
 
     def refresh(self):
         if self.current_currency_code == '6B27':    #EUR
@@ -90,13 +90,17 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         TTBR = []
         CBR  = []
         TTSR = []
-        CSR  = []
+        # CSR  = []
         
         for i in range(0, int(len(data)/4)):
             TTBR.append(float(data[i*4]))
             CBR.append(float(data[i*4+1]))
             TTSR.append(float(data[i*4+2]))
             # CSR.append(float(data[i*4+3]))
+
+        xax = self.graphicsView.getAxis('bottom') # 坐标轴x
+        ticks = [list(zip(range(len(date)), date[::-1]))]
+        xax.setTicks(ticks)
 
         self.ttbr_line.setData(y=TTBR[::-1])
         self.cbr_line.setData(y=CBR[::-1])

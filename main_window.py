@@ -347,7 +347,7 @@ class Ui_MainWindow(object):
         self.actionClear.setObjectName("actionClear")
 
         self.retranslateUi(MainWindow)
-        self.tabWidget.setCurrentIndex(1)
+        self.tabWidget.setCurrentIndex(0)
         self.button_clear.clicked.connect(MainWindow.clear)
         self.dc_cny.textEdited['QString'].connect(MainWindow.update_cny)
         self.dc_usd.textEdited['QString'].connect(MainWindow.update_usd)
