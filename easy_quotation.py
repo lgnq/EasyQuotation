@@ -50,6 +50,7 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         self.graphicsView.setBackground('w')
 
         self.graphicsView.setLabel('left', text='CNY', units='元')  # y轴设置函数
+        self.graphicsView.setLabel('right', text='%')  # y轴设置函数
         # self.graphicsView.setLabel('bottom', text='date', units='day')  # x轴设置函数
         self.graphicsView.showGrid(x=True, y=True)  # 栅格设置函数
         self.graphicsView.setLogMode(x=False, y=False)  # False代表线性坐标轴，True代表对数坐标轴
@@ -60,7 +61,7 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         # pen = pg.mkPen(color=(255, 255, 0))
         self.cbr_line = self.graphicsView.plot(name='Cash Buying Rate', pen='g', symbol='+')
         # pen = pg.mkPen(color=(255, 0, 255))
-        self.ttsr_line = self.graphicsView.plot(name='Telegraphic Transfer Selling Rate[Cash Selling Rate]', pen='r', symbol='o')  
+        self.ttsr_line = self.graphicsView.plot(name='Telegraphic Transfer Selling Rate[Cash Selling Rate]', pen=(255,0,0), symbolBrush=(255,0,0), symbolPen='w', symbol='star', symbolSize=14)  
 
     def refresh(self):
         if self.current_currency_code == '6B27':    #EUR
@@ -517,6 +518,8 @@ class MyWindow(QMainWindow, Ui_MainWindow):
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
+
     myWin = MyWindow()
     myWin.show()
-    sys.exit(app.exec_())
+    
+    app.exec_()
