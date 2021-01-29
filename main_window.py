@@ -403,7 +403,7 @@ class Ui_MainWindow(object):
         self.lineEdit_9.setText(_translate("MainWindow", "10M"))
         self.lineEdit_8.setText(_translate("MainWindow", "5M"))
         self.lineEdit_4.setText(_translate("MainWindow", "250K"))
-        self.label_4.setText(_translate("MainWindow", "Melexis Order Number"))
+        self.label_4.setText(_translate("MainWindow", "Order Number"))
         self.price_100k.setText(_translate("MainWindow", "EUR 0.000"))
         self.price_50k.setText(_translate("MainWindow", "EUR 0.000"))
         self.groupBox.setTitle(_translate("MainWindow", "Exchange Rate"))

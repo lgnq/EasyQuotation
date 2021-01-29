@@ -183,7 +183,7 @@
            <item row="0" column="1" colspan="2">
             <widget class="QLabel" name="label_4">
              <property name="text">
-              <string>Melexis Order Number</string>
+              <string>Order Number</string>
              </property>
             </widget>
            </item>
