@@ -9,12 +9,9 @@ import os
 from PyQt5.QtWidgets import QApplication, QMainWindow, QPushButton
 from main_window import *
 
-import re
 import json
-import urllib.request
 
 import xlrd
-import time 
 from PyQt5.QtCore import QStringListModel
 
 import time
@@ -45,12 +42,12 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         self.exchange_rate_setup()
 
     def exchange_rate_setup(self):
-        self.graphicsView.setTitle("欧元兑人民币日线图", color='k')
+        self.graphicsView.setTitle("ERU against CNY daily chart 欧元兑人民币日线图", color='k')
 
         self.graphicsView.setBackground('w')
 
         self.graphicsView.setLabel('left', text='CNY', units='元')  # y轴设置函数
-        self.graphicsView.setLabel('right', text='%')  # y轴设置函数
+        # self.graphicsView.setLabel('right', text='%')  # y轴设置函数
         # self.graphicsView.setLabel('bottom', text='date', units='day')  # x轴设置函数
         self.graphicsView.showGrid(x=True, y=True)  # 栅格设置函数
         self.graphicsView.setLogMode(x=False, y=False)  # False代表线性坐标轴，True代表对数坐标轴
@@ -65,9 +62,9 @@ class MyWindow(QMainWindow, Ui_MainWindow):
 
     def refresh(self):
         if self.current_currency_code == '6B27':    #EUR
-            self.graphicsView.setTitle("欧元兑人民币日线图", color='k')
+            self.graphicsView.setTitle("ERU against CNY daily chart 欧元兑人民币日线图", color='k')
         elif self.current_currency_code == '7F8E':    #USD
-            self.graphicsView.setTitle("美元兑人民币日线图", color='k')
+            self.graphicsView.setTitle("USD against CNY daily chart 美元兑人民币日线图", color='k')
         
         dat = self.dateEdit.text().split('/')
         start = "{}-{}-{}".format(dat[2], dat[0], dat[1])
@@ -450,6 +447,7 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         self.cny_eur = 1/self.eur_cny
 
         self.update_exchange_rate(time.asctime(time.localtime(time.time())))
+        # self.update_exchange_rate(QDate.currentDate())
 
     def forex_update(self):
         self.c = CurrencyRates()                                                 
