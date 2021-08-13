@@ -27,6 +27,8 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         super(MyWindow, self).__init__(parent)
         self.setupUi(self)
 
+        self.setWindowIcon(QtGui.QIcon('M.png'))
+
         if os.path.exists("exchange_rate.txt"):
             self.load_exchange_rate()
 
@@ -478,6 +480,7 @@ class MyWindow(QMainWindow, Ui_MainWindow):
 
         localtime = time.asctime(time.localtime(time.time()))
         print(localtime)
+
 
         print("Disty Cost: {0:.4f}EUR = {1:.4f}USD = {2:.4f}CNY".format(float(self.dc_eur.text()), float(self.dc_usd.text()), float(self.dc_cny.text())))
         print("Resale[{3}%]: {0:.4f}EUR = {1:.4f}USD = {2:.4f}CNY".format(float(self.rs_eur.text()), float(self.rs_usd.text()), float(self.rs_cny.text()), margin*100))
