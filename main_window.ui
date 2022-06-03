@@ -299,7 +299,7 @@
            <item row="1" column="3">
             <widget class="QPushButton" name="pushButton_2">
              <property name="text">
-              <string>Forex</string>
+              <string>Melexis</string>
              </property>
             </widget>
            </item>
@@ -372,6 +372,9 @@
                <widget class="QLineEdit" name="dc_eur">
                 <property name="enabled">
                  <bool>false</bool>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">color: rgb(255, 0, 0);</string>
                 </property>
                </widget>
               </item>
@@ -847,7 +850,7 @@ p, li { white-space: pre-wrap; }
    <slot>update_cny()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>177</x>
+     <x>166</x>
      <y>583</y>
     </hint>
     <hint type="destinationlabel">
@@ -863,7 +866,7 @@ p, li { white-space: pre-wrap; }
    <slot>update_usd()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>177</x>
+     <x>166</x>
      <y>609</y>
     </hint>
     <hint type="destinationlabel">
@@ -879,7 +882,7 @@ p, li { white-space: pre-wrap; }
    <slot>update_eur()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>177</x>
+     <x>166</x>
      <y>635</y>
     </hint>
     <hint type="destinationlabel">
@@ -895,7 +898,7 @@ p, li { white-space: pre-wrap; }
    <slot>update_rs_cny()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>381</x>
+     <x>372</x>
      <y>583</y>
     </hint>
     <hint type="destinationlabel">
@@ -911,7 +914,7 @@ p, li { white-space: pre-wrap; }
    <slot>update_rs_usd()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>381</x>
+     <x>372</x>
      <y>609</y>
     </hint>
     <hint type="destinationlabel">
@@ -927,7 +930,7 @@ p, li { white-space: pre-wrap; }
    <slot>update_rs_eur()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>381</x>
+     <x>372</x>
      <y>635</y>
     </hint>
     <hint type="destinationlabel">
@@ -975,8 +978,8 @@ p, li { white-space: pre-wrap; }
    <slot>update_rs_cny_vat()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>381</x>
-     <y>557</y>
+     <x>372</x>
+     <y>531</y>
     </hint>
     <hint type="destinationlabel">
      <x>209</x>
@@ -1024,7 +1027,7 @@ p, li { white-space: pre-wrap; }
    <hints>
     <hint type="sourcelabel">
      <x>578</x>
-     <y>557</y>
+     <y>531</y>
     </hint>
     <hint type="destinationlabel">
      <x>490</x>
@@ -1056,7 +1059,7 @@ p, li { white-space: pre-wrap; }
    <hints>
     <hint type="sourcelabel">
      <x>578</x>
-     <y>505</y>
+     <y>557</y>
     </hint>
     <hint type="destinationlabel">
      <x>511</x>
@@ -1184,7 +1187,7 @@ p, li { white-space: pre-wrap; }
    <hints>
     <hint type="sourcelabel">
      <x>578</x>
-     <y>531</y>
+     <y>505</y>
     </hint>
     <hint type="destinationlabel">
      <x>380</x>
@@ -1327,8 +1330,8 @@ p, li { white-space: pre-wrap; }
    <slot>update_margin()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>381</x>
-     <y>505</y>
+     <x>372</x>
+     <y>557</y>
     </hint>
     <hint type="destinationlabel">
      <x>292</x>
@@ -1343,8 +1346,8 @@ p, li { white-space: pre-wrap; }
    <slot>update_vat()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>381</x>
-     <y>531</y>
+     <x>372</x>
+     <y>505</y>
     </hint>
     <hint type="destinationlabel">
      <x>256</x>
