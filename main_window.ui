@@ -331,8 +331,18 @@
               <string>Disty Cost</string>
              </property>
              <layout class="QGridLayout" name="gridLayout">
-              <item row="4" column="1">
-               <widget class="QLineEdit" name="dc_usd">
+              <item row="3" column="0">
+               <widget class="QLabel" name="label">
+                <property name="text">
+                 <string>CNY:</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="1" colspan="2">
+               <widget class="QLineEdit" name="dc_cny">
                 <property name="enabled">
                  <bool>false</bool>
                 </property>
@@ -348,27 +358,24 @@
                 </property>
                </widget>
               </item>
-              <item row="0" column="1">
-               <spacer name="verticalSpacer">
-                <property name="orientation">
-                 <enum>Qt::Vertical</enum>
-                </property>
-                <property name="sizeHint" stdset="0">
-                 <size>
-                  <width>20</width>
-                  <height>17</height>
-                 </size>
-                </property>
-               </spacer>
-              </item>
-              <item row="2" column="1">
-               <widget class="QLineEdit" name="dc_cny">
+              <item row="4" column="1" colspan="2">
+               <widget class="QLineEdit" name="dc_usd">
                 <property name="enabled">
                  <bool>false</bool>
                 </property>
                </widget>
               </item>
-              <item row="6" column="1">
+              <item row="5" column="0">
+               <widget class="QLabel" name="label_3">
+                <property name="text">
+                 <string>EUR:</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item row="5" column="1" colspan="2">
                <widget class="QLineEdit" name="dc_eur">
                 <property name="enabled">
                  <bool>false</bool>
@@ -378,23 +385,42 @@
                 </property>
                </widget>
               </item>
-              <item row="2" column="0">
-               <widget class="QLabel" name="label">
-                <property name="text">
-                 <string>CNY:</string>
+              <item row="0" column="1" colspan="2">
+               <widget class="QLineEdit" name="lineEdit">
+                <property name="enabled">
+                 <bool>false</bool>
                 </property>
-                <property name="alignment">
-                 <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                <property name="styleSheet">
+                 <string notr="true">alternate-background-color: rgb(255, 255, 255);</string>
+                </property>
+                <property name="frame">
+                 <bool>false</bool>
                 </property>
                </widget>
               </item>
-              <item row="6" column="0">
-               <widget class="QLabel" name="label_3">
-                <property name="text">
-                 <string>EUR:</string>
+              <item row="1" column="1" colspan="2">
+               <widget class="QLineEdit" name="lineEdit_11">
+                <property name="enabled">
+                 <bool>false</bool>
                 </property>
-                <property name="alignment">
-                 <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                <property name="styleSheet">
+                 <string notr="true">alternate-background-color: rgb(255, 255, 255);</string>
+                </property>
+                <property name="frame">
+                 <bool>false</bool>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="1" colspan="2">
+               <widget class="QLineEdit" name="lineEdit_10">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">alternate-background-color: rgb(255, 255, 255);</string>
+                </property>
+                <property name="frame">
+                 <bool>false</bool>
                 </property>
                </widget>
               </item>
@@ -407,82 +433,14 @@
               <string>Resale Price</string>
              </property>
              <layout class="QGridLayout" name="gridLayout_2">
-              <item row="10" column="1">
+              <item row="9" column="1">
                <widget class="QLineEdit" name="rs_eur">
                 <property name="enabled">
                  <bool>false</bool>
                 </property>
                </widget>
               </item>
-              <item row="10" column="0">
-               <widget class="QLabel" name="label_8">
-                <property name="text">
-                 <string>EUR:</string>
-                </property>
-                <property name="alignment">
-                 <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                </property>
-               </widget>
-              </item>
-              <item row="4" column="1">
-               <widget class="QLineEdit" name="rs_cny_vat">
-                <property name="enabled">
-                 <bool>false</bool>
-                </property>
-               </widget>
-              </item>
-              <item row="7" column="0">
-               <widget class="QLabel" name="label_9">
-                <property name="text">
-                 <string>CNY:</string>
-                </property>
-                <property name="alignment">
-                 <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                </property>
-               </widget>
-              </item>
-              <item row="7" column="1">
-               <widget class="QLineEdit" name="rs_cny">
-                <property name="enabled">
-                 <bool>false</bool>
-                </property>
-               </widget>
-              </item>
-              <item row="4" column="0">
-               <widget class="QLabel" name="label_16">
-                <property name="text">
-                 <string>CNY with VAT:</string>
-                </property>
-                <property name="alignment">
-                 <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                </property>
-               </widget>
-              </item>
-              <item row="9" column="0">
-               <widget class="QLabel" name="label_7">
-                <property name="text">
-                 <string>USD:</string>
-                </property>
-                <property name="alignment">
-                 <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                </property>
-               </widget>
-              </item>
-              <item row="9" column="1">
-               <widget class="QLineEdit" name="rs_usd">
-                <property name="enabled">
-                 <bool>false</bool>
-                </property>
-               </widget>
-              </item>
-              <item row="1" column="1">
-               <widget class="QLineEdit" name="vat">
-                <property name="text">
-                 <string>13</string>
-                </property>
-               </widget>
-              </item>
-              <item row="1" column="0">
+              <item row="0" column="0">
                <widget class="QLabel" name="label_10">
                 <property name="text">
                  <string>VAT %:</string>
@@ -492,7 +450,48 @@
                 </property>
                </widget>
               </item>
-              <item row="5" column="0">
+              <item row="0" column="1">
+               <widget class="QLineEdit" name="vat">
+                <property name="text">
+                 <string>13</string>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="0">
+               <widget class="QLabel" name="label_16">
+                <property name="text">
+                 <string>CNY with VAT:</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item row="8" column="1">
+               <widget class="QLineEdit" name="rs_usd">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
+               </widget>
+              </item>
+              <item row="9" column="0">
+               <widget class="QLabel" name="label_8">
+                <property name="text">
+                 <string>EUR:</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="1">
+               <widget class="QLineEdit" name="rs_cny_vat">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
+               </widget>
+              </item>
+              <item row="4" column="0">
                <widget class="QLabel" name="label_6">
                 <property name="text">
                  <string>Disty Margin %:</string>
@@ -502,10 +501,37 @@
                 </property>
                </widget>
               </item>
-              <item row="5" column="1">
+              <item row="4" column="1">
                <widget class="QLineEdit" name="margin">
                 <property name="text">
                  <string>15</string>
+                </property>
+               </widget>
+              </item>
+              <item row="6" column="0">
+               <widget class="QLabel" name="label_9">
+                <property name="text">
+                 <string>CNY:</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item row="6" column="1">
+               <widget class="QLineEdit" name="rs_cny">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
+               </widget>
+              </item>
+              <item row="8" column="0">
+               <widget class="QLabel" name="label_7">
+                <property name="text">
+                 <string>USD:</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                 </property>
                </widget>
               </item>
@@ -624,50 +650,55 @@
             </widget>
            </item>
            <item>
-            <layout class="QVBoxLayout" name="verticalLayout">
-             <item>
-              <widget class="QPushButton" name="p5">
-               <property name="text">
-                <string>5%</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QPushButton" name="p10">
-               <property name="text">
-                <string>10%</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QPushButton" name="p15">
-               <property name="text">
-                <string>15%</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QPushButton" name="pushButton_3">
-               <property name="text">
-                <string>Print</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QPushButton" name="pushButton_6">
-               <property name="text">
-                <string>Save</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QPushButton" name="button_clear">
-               <property name="text">
-                <string>Clear</string>
-               </property>
-              </widget>
-             </item>
-            </layout>
+            <widget class="QGroupBox" name="groupBox_4">
+             <property name="title">
+              <string>Control</string>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_7">
+              <item row="0" column="0">
+               <widget class="QPushButton" name="p8">
+                <property name="text">
+                 <string>8%</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0">
+               <widget class="QPushButton" name="p10">
+                <property name="text">
+                 <string>10%</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="0">
+               <widget class="QPushButton" name="p15">
+                <property name="text">
+                 <string>15%</string>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="0">
+               <widget class="QPushButton" name="pushButton_3">
+                <property name="text">
+                 <string>Print</string>
+                </property>
+               </widget>
+              </item>
+              <item row="4" column="0">
+               <widget class="QPushButton" name="pushButton_6">
+                <property name="text">
+                 <string>Save</string>
+                </property>
+               </widget>
+              </item>
+              <item row="5" column="0">
+               <widget class="QPushButton" name="button_clear">
+                <property name="text">
+                 <string>Clear</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
            </item>
           </layout>
          </widget>
@@ -842,8 +873,8 @@ p, li { white-space: pre-wrap; }
    <slot>clear()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>670</x>
-     <y>644</y>
+     <x>661</x>
+     <y>635</y>
     </hint>
     <hint type="destinationlabel">
      <x>511</x>
@@ -858,8 +889,8 @@ p, li { white-space: pre-wrap; }
    <slot>update_cny()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>166</x>
-     <y>583</y>
+     <x>160</x>
+     <y>573</y>
     </hint>
     <hint type="destinationlabel">
      <x>356</x>
@@ -874,8 +905,8 @@ p, li { white-space: pre-wrap; }
    <slot>update_usd()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>166</x>
-     <y>609</y>
+     <x>160</x>
+     <y>601</y>
     </hint>
     <hint type="destinationlabel">
      <x>262</x>
@@ -890,8 +921,8 @@ p, li { white-space: pre-wrap; }
    <slot>update_eur()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>166</x>
-     <y>635</y>
+     <x>160</x>
+     <y>629</y>
     </hint>
     <hint type="destinationlabel">
      <x>217</x>
@@ -906,8 +937,8 @@ p, li { white-space: pre-wrap; }
    <slot>update_rs_cny()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>372</x>
-     <y>583</y>
+     <x>360</x>
+     <y>573</y>
     </hint>
     <hint type="destinationlabel">
      <x>511</x>
@@ -922,8 +953,8 @@ p, li { white-space: pre-wrap; }
    <slot>update_rs_usd()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>372</x>
-     <y>609</y>
+     <x>360</x>
+     <y>601</y>
     </hint>
     <hint type="destinationlabel">
      <x>511</x>
@@ -938,8 +969,8 @@ p, li { white-space: pre-wrap; }
    <slot>update_rs_eur()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>372</x>
-     <y>635</y>
+     <x>360</x>
+     <y>629</y>
     </hint>
     <hint type="destinationlabel">
      <x>511</x>
@@ -955,7 +986,7 @@ p, li { white-space: pre-wrap; }
    <hints>
     <hint type="sourcelabel">
      <x>590</x>
-     <y>394</y>
+     <y>376</y>
     </hint>
     <hint type="destinationlabel">
      <x>511</x>
@@ -971,7 +1002,7 @@ p, li { white-space: pre-wrap; }
    <hints>
     <hint type="sourcelabel">
      <x>590</x>
-     <y>423</y>
+     <y>405</y>
     </hint>
     <hint type="destinationlabel">
      <x>511</x>
@@ -986,8 +1017,8 @@ p, li { white-space: pre-wrap; }
    <slot>update_rs_cny_vat()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>372</x>
-     <y>531</y>
+     <x>360</x>
+     <y>517</y>
     </hint>
     <hint type="destinationlabel">
      <x>209</x>
@@ -1002,8 +1033,8 @@ p, li { white-space: pre-wrap; }
    <slot>update_rs_usd_x()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>578</x>
-     <y>609</y>
+     <x>560</x>
+     <y>601</y>
     </hint>
     <hint type="destinationlabel">
      <x>511</x>
@@ -1018,8 +1049,8 @@ p, li { white-space: pre-wrap; }
    <slot>update_rs_cny_x()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>578</x>
-     <y>583</y>
+     <x>560</x>
+     <y>573</y>
     </hint>
     <hint type="destinationlabel">
      <x>511</x>
@@ -1034,8 +1065,8 @@ p, li { white-space: pre-wrap; }
    <slot>update_rs_cny_vat_x()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>578</x>
-     <y>531</y>
+     <x>560</x>
+     <y>517</y>
     </hint>
     <hint type="destinationlabel">
      <x>490</x>
@@ -1050,8 +1081,8 @@ p, li { white-space: pre-wrap; }
    <slot>update_rs_eur_x()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>578</x>
-     <y>635</y>
+     <x>560</x>
+     <y>629</y>
     </hint>
     <hint type="destinationlabel">
      <x>511</x>
@@ -1066,8 +1097,8 @@ p, li { white-space: pre-wrap; }
    <slot>update_margin_x()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>578</x>
-     <y>557</y>
+     <x>560</x>
+     <y>545</y>
     </hint>
     <hint type="destinationlabel">
      <x>511</x>
@@ -1082,8 +1113,8 @@ p, li { white-space: pre-wrap; }
    <slot>print_quotation()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>670</x>
-     <y>586</y>
+     <x>661</x>
+     <y>577</y>
     </hint>
     <hint type="destinationlabel">
      <x>511</x>
@@ -1099,7 +1130,7 @@ p, li { white-space: pre-wrap; }
    <hints>
     <hint type="sourcelabel">
      <x>671</x>
-     <y>394</y>
+     <y>376</y>
     </hint>
     <hint type="destinationlabel">
      <x>511</x>
@@ -1115,7 +1146,7 @@ p, li { white-space: pre-wrap; }
    <hints>
     <hint type="sourcelabel">
      <x>671</x>
-     <y>423</y>
+     <y>405</y>
     </hint>
     <hint type="destinationlabel">
      <x>511</x>
@@ -1194,8 +1225,8 @@ p, li { white-space: pre-wrap; }
    <slot>update_vat_x()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>578</x>
-     <y>505</y>
+     <x>560</x>
+     <y>489</y>
     </hint>
     <hint type="destinationlabel">
      <x>380</x>
@@ -1210,8 +1241,8 @@ p, li { white-space: pre-wrap; }
    <slot>price_x_clicked()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>65</x>
-     <y>332</y>
+     <x>86</x>
+     <y>314</y>
     </hint>
     <hint type="destinationlabel">
      <x>0</x>
@@ -1227,7 +1258,7 @@ p, li { white-space: pre-wrap; }
    <hints>
     <hint type="sourcelabel">
      <x>185</x>
-     <y>332</y>
+     <y>314</y>
     </hint>
     <hint type="destinationlabel">
      <x>0</x>
@@ -1243,7 +1274,7 @@ p, li { white-space: pre-wrap; }
    <hints>
     <hint type="sourcelabel">
      <x>266</x>
-     <y>332</y>
+     <y>314</y>
     </hint>
     <hint type="destinationlabel">
      <x>0</x>
@@ -1259,7 +1290,7 @@ p, li { white-space: pre-wrap; }
    <hints>
     <hint type="sourcelabel">
      <x>347</x>
-     <y>332</y>
+     <y>314</y>
     </hint>
     <hint type="destinationlabel">
      <x>0</x>
@@ -1275,7 +1306,7 @@ p, li { white-space: pre-wrap; }
    <hints>
     <hint type="sourcelabel">
      <x>428</x>
-     <y>332</y>
+     <y>314</y>
     </hint>
     <hint type="destinationlabel">
      <x>0</x>
@@ -1291,7 +1322,7 @@ p, li { white-space: pre-wrap; }
    <hints>
     <hint type="sourcelabel">
      <x>509</x>
-     <y>332</y>
+     <y>314</y>
     </hint>
     <hint type="destinationlabel">
      <x>0</x>
@@ -1307,7 +1338,7 @@ p, li { white-space: pre-wrap; }
    <hints>
     <hint type="sourcelabel">
      <x>590</x>
-     <y>332</y>
+     <y>314</y>
     </hint>
     <hint type="destinationlabel">
      <x>0</x>
@@ -1323,7 +1354,7 @@ p, li { white-space: pre-wrap; }
    <hints>
     <hint type="sourcelabel">
      <x>671</x>
-     <y>332</y>
+     <y>314</y>
     </hint>
     <hint type="destinationlabel">
      <x>0</x>
@@ -1338,8 +1369,8 @@ p, li { white-space: pre-wrap; }
    <slot>update_margin()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>372</x>
-     <y>557</y>
+     <x>360</x>
+     <y>545</y>
     </hint>
     <hint type="destinationlabel">
      <x>292</x>
@@ -1354,8 +1385,8 @@ p, li { white-space: pre-wrap; }
    <slot>update_vat()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>372</x>
-     <y>505</y>
+     <x>360</x>
+     <y>489</y>
     </hint>
     <hint type="destinationlabel">
      <x>256</x>
@@ -1370,8 +1401,8 @@ p, li { white-space: pre-wrap; }
    <slot>refresh()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>631</x>
-     <y>51</y>
+     <x>119</x>
+     <y>69</y>
     </hint>
     <hint type="destinationlabel">
      <x>870</x>
@@ -1386,8 +1417,8 @@ p, li { white-space: pre-wrap; }
    <slot>currency_code_changed()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>352</x>
-     <y>55</y>
+     <x>119</x>
+     <y>69</y>
     </hint>
     <hint type="destinationlabel">
      <x>804</x>
