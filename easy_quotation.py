@@ -159,6 +159,14 @@ class MyWindow(QMainWindow, Ui_MainWindow):
 
         self.update_quotation(button, price)
 
+    def get_column_by_name(self, name):
+        header = self.sheet.row_values(0)
+        for i in range(len(header)):
+            if (header[i] == name):
+                return i
+        
+        return -1
+
     def update_price_list(self, order_number):
         self.price_50k.setEnabled(True)
         self.price_100k.setEnabled(True)
@@ -169,17 +177,40 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         self.price_5m.setEnabled(True)
         self.price_10m.setEnabled(True)
 
+        column_50k  = self.get_column_by_name('50K')
+        column_100k = self.get_column_by_name('100K')
+        column_250k = self.get_column_by_name('250K')
+        column_500k = self.get_column_by_name('500K')
+        column_1m   = self.get_column_by_name('1M')
+        column_2_5m = self.get_column_by_name('2.5M')
+        column_5m   = self.get_column_by_name('5M')
+        column_10m  = self.get_column_by_name('10M')
+
         for i in range(0, self.sheet.nrows):
             if self.sheet.cell_value(i, 0) == order_number:
-                column = 11
-                self.price_50k.setText("EUR {}".format(str(self.sheet.cell_value(i, column)))) 
-                self.price_100k.setText("EUR {}".format(str(self.sheet.cell_value(i, column+1)))) 
-                self.price_250k.setText("EUR {}".format(str(self.sheet.cell_value(i, column+2)))) 
-                self.price_500k.setText("EUR {}".format(str(self.sheet.cell_value(i, column+3)))) 
-                self.price_1m.setText("EUR {}".format(str(self.sheet.cell_value(i, column+4)))) 
-                self.price_2_5m.setText("EUR {}".format(str(self.sheet.cell_value(i, column+5)))) 
-                self.price_5m.setText("EUR {}".format(str(self.sheet.cell_value(i, column+6)))) 
-                self.price_10m.setText("EUR {}".format(str(self.sheet.cell_value(i, column+7)))) 
+                if (column_50k != -1):
+                    self.price_50k.setText("EUR {}".format(str(self.sheet.cell_value(i, column_50k))))
+
+                if (column_100k != -1):
+                    self.price_100k.setText("EUR {}".format(str(self.sheet.cell_value(i, column_100k))))
+
+                if (column_250k != -1):
+                    self.price_250k.setText("EUR {}".format(str(self.sheet.cell_value(i, column_250k))))
+
+                if (column_500k != -1):
+                    self.price_500k.setText("EUR {}".format(str(self.sheet.cell_value(i, column_500k))))
+
+                if (column_1m != -1):
+                    self.price_1m.setText("EUR {}".format(str(self.sheet.cell_value(i, column_1m))))
+
+                if (column_2_5m != -1):
+                    self.price_2_5m.setText("EUR {}".format(str(self.sheet.cell_value(i, column_2_5m))))
+
+                if (column_5m != -1):
+                    self.price_5m.setText("EUR {}".format(str(self.sheet.cell_value(i, column_5m))))
+
+                if (column_10m != -1):
+                    self.price_10m.setText("EUR {}".format(str(self.sheet.cell_value(i, column_10m))))
 
     def list_view_clicked(self, qModelIndex):
         # print(self.qList[qModelIndex.row()])  
