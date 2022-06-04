@@ -337,6 +337,21 @@ class MyWindow(QMainWindow, Ui_MainWindow):
     def update_margin_x(self):
         self.update_quotation(self.margin_x, float(self.dc_eur.text()))
 
+    def set_margin(self):
+        if self.sender() == self.p8:
+            self.margin.setText("8");
+            self.margin_x.setText("8");
+
+        if self.sender() == self.p10:
+            self.margin.setText("10");
+            self.margin_x.setText("10");
+
+        if self.sender() == self.p15:
+            self.margin.setText("15");
+            self.margin_x.setText("15");
+
+        self.update_quotation(self.margin, float(self.dc_eur.text()))
+
     def update_vat_x(self):
         self.update_quotation(self.vat_x, float(self.dc_eur.text()))        
 

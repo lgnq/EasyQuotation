@@ -425,6 +425,9 @@ class Ui_MainWindow(object):
         self.vat.textEdited['QString'].connect(MainWindow.update_vat)
         self.pushButton_4.clicked.connect(MainWindow.refresh)
         self.currency_code.currentIndexChanged['int'].connect(MainWindow.currency_code_changed)
+        self.p8.clicked.connect(MainWindow.set_margin)
+        self.p10.clicked.connect(MainWindow.set_margin)
+        self.p15.clicked.connect(MainWindow.set_margin)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):

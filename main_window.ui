@@ -890,7 +890,7 @@ p, li { white-space: pre-wrap; }
    <hints>
     <hint type="sourcelabel">
      <x>160</x>
-     <y>573</y>
+     <y>569</y>
     </hint>
     <hint type="destinationlabel">
      <x>356</x>
@@ -906,7 +906,7 @@ p, li { white-space: pre-wrap; }
    <hints>
     <hint type="sourcelabel">
      <x>160</x>
-     <y>601</y>
+     <y>599</y>
     </hint>
     <hint type="destinationlabel">
      <x>262</x>
@@ -1401,8 +1401,8 @@ p, li { white-space: pre-wrap; }
    <slot>refresh()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>119</x>
-     <y>69</y>
+     <x>680</x>
+     <y>63</y>
     </hint>
     <hint type="destinationlabel">
      <x>870</x>
@@ -1417,12 +1417,60 @@ p, li { white-space: pre-wrap; }
    <slot>currency_code_changed()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>119</x>
-     <y>69</y>
+     <x>372</x>
+     <y>61</y>
     </hint>
     <hint type="destinationlabel">
      <x>804</x>
      <y>440</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>p8</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>set_margin()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>635</x>
+     <y>482</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>700</x>
+     <y>481</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>p10</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>set_margin()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>640</x>
+     <y>507</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>700</x>
+     <y>533</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>p15</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>set_margin()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>628</x>
+     <y>539</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>703</x>
+     <y>589</y>
     </hint>
    </hints>
   </connection>
@@ -1458,5 +1506,6 @@ p, li { white-space: pre-wrap; }
   <slot>update_vat_x()</slot>
   <slot>refresh()</slot>
   <slot>currency_code_changed()</slot>
+  <slot>set_margin()</slot>
  </slots>
 </ui>
