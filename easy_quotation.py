@@ -162,7 +162,7 @@ class MyWindow(QMainWindow, Ui_MainWindow):
     def get_column_by_name(self, name):
         header = self.sheet.row_values(0)
         for i in range(len(header)):
-            if (header[i] == name):
+            if (header[i].capitalize() == name.capitalize()):
                 return i
         
         return -1
