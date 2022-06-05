@@ -381,7 +381,7 @@
                  <bool>false</bool>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">color: rgb(255, 0, 0);</string>
+                 <string notr="true">background-color: rgb(255, 255, 127);</string>
                 </property>
                </widget>
               </item>
@@ -489,6 +489,9 @@
                 <property name="enabled">
                  <bool>false</bool>
                 </property>
+                <property name="styleSheet">
+                 <string notr="true">background-color: rgb(170, 255, 255);</string>
+                </property>
                </widget>
               </item>
               <item row="4" column="0">
@@ -503,6 +506,9 @@
               </item>
               <item row="4" column="1">
                <widget class="QLineEdit" name="margin">
+                <property name="styleSheet">
+                 <string notr="true">color: rgb(255, 0, 0);</string>
+                </property>
                 <property name="text">
                  <string>15</string>
                 </property>
@@ -597,6 +603,9 @@
                 <property name="enabled">
                  <bool>false</bool>
                 </property>
+                <property name="styleSheet">
+                 <string notr="true">background-color: rgb(170, 255, 255);</string>
+                </property>
                </widget>
               </item>
               <item row="7" column="0">
@@ -641,6 +650,9 @@
               </item>
               <item row="3" column="1">
                <widget class="QLineEdit" name="margin_x">
+                <property name="styleSheet">
+                 <string notr="true">color: rgb(255, 0, 0);</string>
+                </property>
                 <property name="text">
                  <string>15</string>
                 </property>
@@ -657,6 +669,9 @@
              <layout class="QGridLayout" name="gridLayout_7">
               <item row="0" column="0">
                <widget class="QPushButton" name="p8">
+                <property name="styleSheet">
+                 <string notr="true">color: rgb(255, 0, 0);</string>
+                </property>
                 <property name="text">
                  <string>8%</string>
                 </property>
@@ -664,6 +679,9 @@
               </item>
               <item row="1" column="0">
                <widget class="QPushButton" name="p10">
+                <property name="styleSheet">
+                 <string notr="true">color: rgb(255, 0, 0);</string>
+                </property>
                 <property name="text">
                  <string>10%</string>
                 </property>
@@ -671,6 +689,9 @@
               </item>
               <item row="2" column="0">
                <widget class="QPushButton" name="p15">
+                <property name="styleSheet">
+                 <string notr="true">color: rgb(255, 0, 0);</string>
+                </property>
                 <property name="text">
                  <string>15%</string>
                 </property>
