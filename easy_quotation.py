@@ -161,8 +161,9 @@ class MyWindow(QMainWindow, Ui_MainWindow):
 
     def get_column_by_name(self, name):
         header = self.sheet.row_values(0)
+        
         for i in range(len(header)):
-            if (header[i].capitalize() == name.capitalize()):
+            if (header[i].upper().find(name.upper()) != -1):
                 return i
         
         return -1
@@ -177,6 +178,8 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         self.price_5m.setEnabled(True)
         self.price_10m.setEnabled(True)
 
+        column_pn   = self.get_column_by_name('number')
+
         column_50k  = self.get_column_by_name('50K')
         column_100k = self.get_column_by_name('100K')
         column_250k = self.get_column_by_name('250K')
@@ -187,7 +190,7 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         column_10m  = self.get_column_by_name('10M')
 
         for i in range(0, self.sheet.nrows):
-            if self.sheet.cell_value(i, 0) == order_number:
+            if self.sheet.cell_value(i, column_pn) == order_number:
                 if (column_50k != -1):
                     self.price_50k.setText("EUR {}".format(str(self.sheet.cell_value(i, column_50k))))
 
