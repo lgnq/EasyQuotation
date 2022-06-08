@@ -120,6 +120,16 @@ class MyWindow(QMainWindow, Ui_MainWindow):
     def about(self):
         print("about")
 
+    def get_column_by_name(self, name):
+        header = self.sheet.row_values(0)
+        
+        for i in range(len(header)):
+            if (header[i].upper().find(name.upper()) != -1):
+                return i
+        
+        print("can't find column containing {}".format(name))
+        return -1        
+
     def order_number_text_edited(self):
         current_str = self.order_number.text()
 
@@ -127,11 +137,13 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         slm = QStringListModel()
         self.qList = []
 
+        column_pn = self.get_column_by_name('number')
+
         if len(current_str) > 7:
             for i in range(0, self.sheet.nrows):
-                if self.sheet.cell_value(i, 0).find(current_str) >= 0:
+                if self.sheet.cell_value(i, column_pn).find(current_str) >= 0:
                     # print(self.sheet.cell_value(i, 0))
-                    self.qList.append(self.sheet.cell_value(i, 0))
+                    self.qList.append(self.sheet.cell_value(i, column_pn))
 
         #设置模型列表视图，加载数据列表
         slm.setStringList(self.qList)
@@ -158,15 +170,6 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         price = float(data[1])
 
         self.update_quotation(button, price)
-
-    def get_column_by_name(self, name):
-        header = self.sheet.row_values(0)
-        
-        for i in range(len(header)):
-            if (header[i].upper().find(name.upper()) != -1):
-                return i
-        
-        return -1
 
     def update_price_list(self, order_number):
         self.price_50k.setEnabled(True)
