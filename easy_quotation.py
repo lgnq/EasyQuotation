@@ -141,7 +141,7 @@ class MyWindow(QMainWindow, Ui_MainWindow):
 
         if len(current_str) > 7:
             for i in range(0, self.sheet.nrows):
-                if self.sheet.cell_value(i, column_pn).find(current_str) >= 0:
+                if self.sheet.cell_value(i, column_pn).upper().find(current_str.upper()) >= 0:
                     # print(self.sheet.cell_value(i, 0))
                     self.qList.append(self.sheet.cell_value(i, column_pn))
 
