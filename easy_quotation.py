@@ -526,17 +526,13 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         self.update_exchange_rate(time.asctime(time.localtime(time.time())))
    
 
-    def print_quotation(self):
-        margin = float(self.margin.text()) / 100
-        margin_x = float(self.margin_x.text()) / 100
-
+    def open_quotation_xlsx(self):
         localtime = time.asctime(time.localtime(time.time()))
         print(localtime)
 
-
-        print("Disty Cost: {0:.4f}EUR = {1:.4f}USD = {2:.4f}CNY".format(float(self.dc_eur.text()), float(self.dc_usd.text()), float(self.dc_cny.text())))
-        print("Resale[{3}%]: {0:.4f}EUR = {1:.4f}USD = {2:.4f}CNY".format(float(self.rs_eur.text()), float(self.rs_usd.text()), float(self.rs_cny.text()), margin*100))
-        print("Resale[{3}%] standard: {0:.4f}EUR = {1:.4f}USD = {2:.4f}CNY".format(float(self.rs_eur_x.text()), float(self.rs_usd_x.text()), float(self.rs_cny_x.text()), margin_x*100))
+    def save_quotation_xlsx(self):
+        localtime = time.asctime(time.localtime(time.time()))
+        print(localtime)        
 
     def save_exchange_rate(self):
         f = open("exchange_rate.txt", "w") 

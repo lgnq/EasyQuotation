@@ -698,16 +698,16 @@
                </widget>
               </item>
               <item row="3" column="0">
-               <widget class="QPushButton" name="pushButton_3">
+               <widget class="QPushButton" name="open_quotation">
                 <property name="text">
-                 <string>Print</string>
+                 <string>Open xlsx</string>
                 </property>
                </widget>
               </item>
               <item row="4" column="0">
-               <widget class="QPushButton" name="pushButton_6">
+               <widget class="QPushButton" name="save_quotation">
                 <property name="text">
-                 <string>Save</string>
+                 <string>Save xlsx</string>
                 </property>
                </widget>
               </item>
@@ -1128,22 +1128,6 @@ p, li { white-space: pre-wrap; }
    </hints>
   </connection>
   <connection>
-   <sender>pushButton_3</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>print_quotation()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>661</x>
-     <y>577</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>511</x>
-     <y>493</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
    <sender>button_save_exchange_rate</sender>
    <signal>clicked()</signal>
    <receiver>MainWindow</receiver>
@@ -1495,6 +1479,38 @@ p, li { white-space: pre-wrap; }
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>open_quotation</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>open_quotation_xlsx()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>626</x>
+     <y>571</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>704</x>
+     <y>655</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>save_quotation</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>save_quotation_xlsx()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>618</x>
+     <y>598</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>708</x>
+     <y>624</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>update_cny()</slot>
@@ -1513,7 +1529,6 @@ p, li { white-space: pre-wrap; }
   <slot>update_rs_cny_x()</slot>
   <slot>update_rs_cny_vat_x()</slot>
   <slot>update_margin()</slot>
-  <slot>print_quotation()</slot>
   <slot>save_exchange_rate()</slot>
   <slot>load_exchange_rate()</slot>
   <slot>about()</slot>
@@ -1528,5 +1543,7 @@ p, li { white-space: pre-wrap; }
   <slot>refresh()</slot>
   <slot>currency_code_changed()</slot>
   <slot>set_margin()</slot>
+  <slot>open_quotation_xlsx()</slot>
+  <slot>save_quotation_xlsx()</slot>
  </slots>
 </ui>
