@@ -195,28 +195,28 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         for i in range(0, self.sheet.nrows):
             if self.sheet.cell_value(i, column_pn) == order_number:
                 if (column_50k != -1):
-                    self.price_50k.setText("EUR {}".format(str(self.sheet.cell_value(i, column_50k))))
+                    self.price_50k.setText("EUR {0:.3f}".format(self.sheet.cell_value(i, column_50k)))
 
                 if (column_100k != -1):
-                    self.price_100k.setText("EUR {}".format(str(self.sheet.cell_value(i, column_100k))))
+                    self.price_100k.setText("EUR {0:.3f}".format(self.sheet.cell_value(i, column_100k)))
 
                 if (column_250k != -1):
-                    self.price_250k.setText("EUR {}".format(str(self.sheet.cell_value(i, column_250k))))
+                    self.price_250k.setText("EUR {0:.3f}".format(self.sheet.cell_value(i, column_250k)))
 
                 if (column_500k != -1):
-                    self.price_500k.setText("EUR {}".format(str(self.sheet.cell_value(i, column_500k))))
+                    self.price_500k.setText("EUR {0:.3f}".format(self.sheet.cell_value(i, column_500k)))
 
                 if (column_1m != -1):
-                    self.price_1m.setText("EUR {}".format(str(self.sheet.cell_value(i, column_1m))))
+                    self.price_1m.setText("EUR {0:.3f}".format(self.sheet.cell_value(i, column_1m)))
 
                 if (column_2_5m != -1):
-                    self.price_2_5m.setText("EUR {}".format(str(self.sheet.cell_value(i, column_2_5m))))
+                    self.price_2_5m.setText("EUR {0:.3f}".format(self.sheet.cell_value(i, column_2_5m)))
 
                 if (column_5m != -1):
-                    self.price_5m.setText("EUR {}".format(str(self.sheet.cell_value(i, column_5m))))
+                    self.price_5m.setText("EUR {0:.3f}".format(self.sheet.cell_value(i, column_5m)))
 
                 if (column_10m != -1):
-                    self.price_10m.setText("EUR {}".format(str(self.sheet.cell_value(i, column_10m))))
+                    self.price_10m.setText("EUR {0:.3f}".format(self.sheet.cell_value(i, column_10m)))
 
     def list_view_clicked(self, qModelIndex):
         # print(self.qList[qModelIndex.row()])  
