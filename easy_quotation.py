@@ -6,7 +6,9 @@ from forex_python.converter import CurrencyRates
 import sys
 import os
 
-from PyQt5.QtWidgets import QApplication, QMainWindow, QPushButton
+import pandas as pd
+
+from PyQt5.QtWidgets import QApplication, QMainWindow, QPushButton, QFileDialog
 from main_window import *
 
 import json
@@ -527,8 +529,21 @@ class MyWindow(QMainWindow, Ui_MainWindow):
    
 
     def open_quotation_xlsx(self):
-        localtime = time.asctime(time.localtime(time.time()))
-        print(localtime)
+        file_name, _ = QFileDialog.getOpenFileName(self, 'Open Backlog File', r'.\\', "(*.xlsx)")
+        self.quotation_df = pd.read_excel(file_name, sheet_name=0, skiprows=0)
+        # print(self.quotation_df)
+
+        self.disty = self.quotation_df.loc[0, 'Disty']
+        self.part_number = self.quotation_df.loc[0, 'part#']
+        self.target_rmb_rs = self.quotation_df.loc[0, 'target RSL in RMB (13% VAT)']
+        self.target_eur_rs = self.quotation_df.loc[0, 'target RSL in €']
+        self.target_eur_dc = self.quotation_df.loc[0, 'target DC €']
+        self.approved_eur_dc = self.quotation_df.loc[0, 'approved DC €']
+        self.approved_date = self.quotation_df.loc[0, 'Approved date']
+        self.approved_disty_margin = self.quotation_df.loc[0, 'disty margin']
+
+        self.order_number.setText(self.part_number)
+        self.rs_cny_vat_x.setText("{0:.4f}".format(self.target_rmb_rs))
 
     def save_quotation_xlsx(self):
         localtime = time.asctime(time.localtime(time.time()))
