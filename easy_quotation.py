@@ -542,10 +542,12 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         self.approved_date = self.quotation_df.loc[0, 'Approved date']
         self.approved_disty_margin = self.quotation_df.loc[0, 'disty margin']
 
-        self.order_number.setText(self.part_number)
-        self.rs_cny_vat_x.setText("{0:.4f}".format(self.target_rmb_rs))
+        self.clear()
 
+        self.order_number.setText(self.part_number)
         self.order_number_text_edited()
+
+        self.rs_cny_vat_x.setText("{0:.4f}".format(self.target_rmb_rs))
 
     def save_quotation_xlsx(self):
         localtime = time.asctime(time.localtime(time.time()))
