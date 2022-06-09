@@ -545,6 +545,37 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         self.order_number.setText(self.part_number)
         self.rs_cny_vat_x.setText("{0:.4f}".format(self.target_rmb_rs))
 
+        #update list pirce
+        #实例化列表模型，添加数据
+        slm = QStringListModel()
+        self.qList = []
+
+        column_pn = self.get_column_by_name('number')
+
+        for i in range(0, self.sheet.nrows):
+            if self.sheet.cell_value(i, column_pn).upper().find(self.part_number.upper()) >= 0:
+                # print(self.sheet.cell_value(i, 0))
+                self.qList.append(self.sheet.cell_value(i, column_pn))
+
+        #设置模型列表视图，加载数据列表
+        slm.setStringList(self.qList)
+
+        #设置列表视图的模型
+        self.listView.setModel(slm)
+
+        if len(self.qList) == 1:
+            self.update_price_list(self.qList[0])
+
+        if len(self.qList) == 0:
+            self.price_50k.setText("EUR 0.000") 
+            self.price_100k.setText("EUR 0.000") 
+            self.price_250k.setText("EUR 0.000") 
+            self.price_500k.setText("EUR 0.000") 
+            self.price_1m.setText("EUR 0.000") 
+            self.price_2_5m.setText("EUR 0.000") 
+            self.price_5m.setText("EUR 0.000") 
+            self.price_10m.setText("EUR 0.000")                
+
     def save_quotation_xlsx(self):
         localtime = time.asctime(time.localtime(time.time()))
         print(localtime)        
