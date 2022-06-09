@@ -548,6 +548,7 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         self.order_number_text_edited()
 
         self.rs_cny_vat_x.setText("{0:.4f}".format(self.target_rmb_rs))
+        self.update_rs_cny_vat_x()
 
     def save_quotation_xlsx(self):
         localtime = time.asctime(time.localtime(time.time()))
