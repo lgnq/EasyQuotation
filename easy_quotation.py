@@ -226,6 +226,9 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         self.update_price_list(clicked_order_number)    
     
     def clear(self):
+        self.order_number.clear()
+        # self.listView.clear()
+
         self.dc_cny.setText("")
         self.dc_usd.setText("")
         self.dc_eur.setText("")
