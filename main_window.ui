@@ -37,13 +37,23 @@
            <string>Price List</string>
           </property>
           <layout class="QGridLayout" name="gridLayout_6">
-           <item row="2" column="1">
-            <widget class="QLineEdit" name="lineEdit_2">
+           <item row="3" column="8">
+            <widget class="QPushButton" name="price_10m">
              <property name="enabled">
               <bool>false</bool>
              </property>
              <property name="text">
-              <string>50K</string>
+              <string>EUR 0.000</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="5">
+            <widget class="QLineEdit" name="lineEdit_6">
+             <property name="enabled">
+              <bool>false</bool>
+             </property>
+             <property name="text">
+              <string>1M</string>
              </property>
             </widget>
            </item>
@@ -67,16 +77,6 @@
              </property>
             </widget>
            </item>
-           <item row="2" column="5">
-            <widget class="QLineEdit" name="lineEdit_6">
-             <property name="enabled">
-              <bool>false</bool>
-             </property>
-             <property name="text">
-              <string>1M</string>
-             </property>
-            </widget>
-           </item>
            <item row="2" column="6">
             <widget class="QLineEdit" name="lineEdit_7">
              <property name="enabled">
@@ -87,8 +87,8 @@
              </property>
             </widget>
            </item>
-           <item row="3" column="8">
-            <widget class="QPushButton" name="price_10m">
+           <item row="3" column="5">
+            <widget class="QPushButton" name="price_1m">
              <property name="enabled">
               <bool>false</bool>
              </property>
@@ -109,16 +109,6 @@
            </item>
            <item row="3" column="6">
             <widget class="QPushButton" name="price_2_5m">
-             <property name="enabled">
-              <bool>false</bool>
-             </property>
-             <property name="text">
-              <string>EUR 0.000</string>
-             </property>
-            </widget>
-           </item>
-           <item row="3" column="5">
-            <widget class="QPushButton" name="price_1m">
              <property name="enabled">
               <bool>false</bool>
              </property>
@@ -167,9 +157,6 @@
              </property>
             </widget>
            </item>
-           <item row="1" column="3" colspan="6">
-            <widget class="QListView" name="listView"/>
-           </item>
            <item row="2" column="3">
             <widget class="QLineEdit" name="lineEdit_4">
              <property name="enabled">
@@ -189,6 +176,9 @@
               <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
              </property>
             </widget>
+           </item>
+           <item row="0" column="3" colspan="6">
+            <widget class="QLineEdit" name="order_number"/>
            </item>
            <item row="3" column="2">
             <widget class="QPushButton" name="price_100k">
@@ -210,8 +200,18 @@
              </property>
             </widget>
            </item>
-           <item row="0" column="3" colspan="6">
-            <widget class="QLineEdit" name="order_number"/>
+           <item row="2" column="1">
+            <widget class="QLineEdit" name="lineEdit_2">
+             <property name="enabled">
+              <bool>false</bool>
+             </property>
+             <property name="text">
+              <string>50K</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="3" colspan="6">
+            <widget class="QListWidget" name="listWidget"/>
            </item>
           </layout>
          </widget>
@@ -1208,22 +1208,6 @@ p, li { white-space: pre-wrap; }
    </hints>
   </connection>
   <connection>
-   <sender>listView</sender>
-   <signal>clicked(QModelIndex)</signal>
-   <receiver>MainWindow</receiver>
-   <slot>list_view_clicked()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>347</x>
-     <y>151</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>0</x>
-     <y>166</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
    <sender>vat_x</sender>
    <signal>textEdited(QString)</signal>
    <receiver>MainWindow</receiver>
@@ -1508,6 +1492,22 @@ p, li { white-space: pre-wrap; }
     <hint type="destinationlabel">
      <x>708</x>
      <y>624</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>listWidget</sender>
+   <signal>clicked(QModelIndex)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>list_view_clicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>637</x>
+     <y>147</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>707</x>
+     <y>200</y>
     </hint>
    </hints>
   </connection>
