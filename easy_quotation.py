@@ -135,28 +135,20 @@ class MyWindow(QMainWindow, Ui_MainWindow):
     def order_number_text_edited(self):
         current_str = self.order_number.text()
 
-        #实例化列表模型，添加数据
-        slm = QStringListModel()
-        self.qList = []
-
         column_pn = self.get_column_by_name('number')
+
+        self.listWidget.clear()
 
         if len(current_str) > 7:
             for i in range(0, self.sheet.nrows):
                 if self.sheet.cell_value(i, column_pn).upper().find(current_str.upper()) >= 0:
-                    # print(self.sheet.cell_value(i, 0))
-                    self.qList.append(self.sheet.cell_value(i, column_pn))
+                    self.listWidget.addItem(self.sheet.cell_value(i, column_pn))
 
-        #设置模型列表视图，加载数据列表
-        slm.setStringList(self.qList)
+        print(self.listWidget.count())
 
-        #设置列表视图的模型
-        self.listView.setModel(slm)
-
-        if len(self.qList) == 1:
-            self.update_price_list(self.qList[0])
-
-        if len(self.qList) == 0:
+        if self.listWidget.count() == 1:
+            self.update_price_list(self.listWidget.item(0).text())
+        else:
             self.price_50k.setText("EUR 0.000") 
             self.price_100k.setText("EUR 0.000") 
             self.price_250k.setText("EUR 0.000") 
@@ -164,7 +156,7 @@ class MyWindow(QMainWindow, Ui_MainWindow):
             self.price_1m.setText("EUR 0.000") 
             self.price_2_5m.setText("EUR 0.000") 
             self.price_5m.setText("EUR 0.000") 
-            self.price_10m.setText("EUR 0.000")             
+            self.price_10m.setText("EUR 0.000")
 
     def price_x_clicked(self):
         button = self.findChild(QPushButton, self.sender().objectName())
@@ -221,13 +213,12 @@ class MyWindow(QMainWindow, Ui_MainWindow):
                     self.price_10m.setText("EUR {0:.3f}".format(self.sheet.cell_value(i, column_10m)))
 
     def list_view_clicked(self, qModelIndex):
-        # print(self.qList[qModelIndex.row()])  
-        clicked_order_number = self.qList[qModelIndex.row()]
+        clicked_order_number = self.listWidget.currentItem().text()  
         self.update_price_list(clicked_order_number)    
     
     def clear(self):
         self.order_number.clear()
-        # self.listView.clear()
+        self.listWidget.clear()
 
         self.dc_cny.setText("")
         self.dc_usd.setText("")
