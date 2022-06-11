@@ -144,8 +144,6 @@ class MyWindow(QMainWindow, Ui_MainWindow):
                 if self.sheet.cell_value(i, column_pn).upper().find(current_str.upper()) >= 0:
                     self.listWidget.addItem(self.sheet.cell_value(i, column_pn))
 
-        print(self.listWidget.count())
-
         if self.listWidget.count() == 1:
             self.update_price_list(self.listWidget.item(0).text())
         else:
