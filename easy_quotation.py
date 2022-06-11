@@ -549,7 +549,12 @@ class MyWindow(QMainWindow, Ui_MainWindow):
 
     def save_quotation_xlsx(self):
         wb = load_workbook(self.quotation_file_name)
-        print(wb.sheetnames)      
+        sheet_ranges = wb['Sheet1']
+
+        print(sheet_ranges['B1'].value)
+        sheet_ranges['B1'].value = 'NBO Number'
+        
+        wb.save("{}_{}.xlsx".format(self.disty, self.part_number))
 
     def save_exchange_rate(self):
         f = open("exchange_rate.txt", "w") 
