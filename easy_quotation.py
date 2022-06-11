@@ -14,6 +14,8 @@ from main_window import *
 import json
 
 import xlrd
+from openpyxl import load_workbook
+
 from PyQt5.QtCore import QStringListModel
 
 import time
@@ -542,8 +544,8 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         self.update_rs_cny_vat_x()
 
     def save_quotation_xlsx(self):
-        localtime = time.asctime(time.localtime(time.time()))
-        print(localtime)        
+        wb = load_workbook(self.quotation_file_name)
+        print(wb.sheetnames)      
 
     def save_exchange_rate(self):
         f = open("exchange_rate.txt", "w") 
