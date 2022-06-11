@@ -520,8 +520,8 @@ class MyWindow(QMainWindow, Ui_MainWindow):
    
 
     def open_quotation_xlsx(self):
-        file_name, _ = QFileDialog.getOpenFileName(self, 'Open Backlog File', r'.\\', "(*.xlsx)")
-        self.quotation_df = pd.read_excel(file_name, sheet_name=0, skiprows=0)
+        self.quotation_file_name, _ = QFileDialog.getOpenFileName(self, 'Open Backlog File', r'.\\', "(*.xlsx)")
+        self.quotation_df = pd.read_excel(self.quotation_file_name, sheet_name=0, skiprows=0)
         # print(self.quotation_df)
 
         self.disty = self.quotation_df.loc[0, 'Disty']
