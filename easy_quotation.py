@@ -31,11 +31,12 @@ class MyWindow(QMainWindow, Ui_MainWindow):
 
         self.setWindowIcon(QtGui.QIcon('M.png'))
 
-        if os.path.exists("exchange_rate.txt"):
-            self.load_exchange_rate()
-
         self.wb = xlrd.open_workbook("price_book.xls")
         self.sheet = self.wb.sheet_by_index(0)
+        self.sheet0_name = self.wb.sheet_names()[0]
+        
+        if os.path.exists("exchange_rate.txt"):
+            self.load_exchange_rate()
 
         # self.dateEdit.setDate('1/1/2020')
         self.dateEdit_2.setDate(QDate.currentDate())
@@ -418,7 +419,7 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         self.button_save_exchange_rate.setEnabled(True)
 
         # self.statusbar.showMessage(time.asctime(time.localtime(time.time())))
-        self.statusbar.showMessage("Exchange Rate on {}".format(time))
+        self.statusbar.showMessage("Exchange Rate on {} | Price Book version {}".format(time, self.sheet0_name))
 
     def hexun_update(self):
         headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:23.0) Gecko/20100101 Firefox/23.0'}
