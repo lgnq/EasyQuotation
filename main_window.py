@@ -327,6 +327,7 @@ class Ui_MainWindow(object):
         self.open_quotation.setObjectName("open_quotation")
         self.gridLayout_7.addWidget(self.open_quotation, 3, 0, 1, 1)
         self.save_quotation = QtWidgets.QPushButton(self.groupBox_4)
+        self.save_quotation.setEnabled(False)
         self.save_quotation.setObjectName("save_quotation")
         self.gridLayout_7.addWidget(self.save_quotation, 4, 0, 1, 1)
         self.button_clear = QtWidgets.QPushButton(self.groupBox_4)

@@ -233,6 +233,8 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         self.rs_cny_x.setText("")
         self.rs_cny_vat_x.setText("")
 
+        self.save_quotation.setEnabled(False)
+
     def update_quotation(self, current_obj, dc_eur):
         vat = float(self.vat.text()) / 100
         vat_x  = float(self.vat_x.text()) / 100
@@ -542,6 +544,8 @@ class MyWindow(QMainWindow, Ui_MainWindow):
 
         self.rs_cny_vat_x.setText("{0:.4f}".format(self.target_rmb_rs))
         self.update_rs_cny_vat_x()
+
+        self.save_quotation.setEnabled(True)
 
     def save_quotation_xlsx(self):
         wb = load_workbook(self.quotation_file_name)
