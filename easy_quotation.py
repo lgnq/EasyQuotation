@@ -37,8 +37,6 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         self.wb = xlrd.open_workbook("price_book.xls")
         self.sheet = self.wb.sheet_by_index(0)
 
-        self.qList = []
-
         # self.dateEdit.setDate('1/1/2020')
         self.dateEdit_2.setDate(QDate.currentDate())
         self.current_currency_code = "6B27" #EUR
