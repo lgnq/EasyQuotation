@@ -21,6 +21,7 @@ from PyQt5.QtCore import QStringListModel
 import time
 import re
 import urllib.request
+import requests
 
 import pyqtgraph as pg
 
@@ -425,80 +426,102 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         # self.statusbar.showMessage(time.asctime(time.localtime(time.time())))
         self.statusbar.showMessage("Exchange Rate on {} | Price Book version {}".format(time, self.sheet0_name))
 
-    def hexun_update(self):
-        headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:23.0) Gecko/20100101 Firefox/23.0'}
+    def hexun_update(self):        
+        url  = "https://open.er-api.com/v6/latest/CNY"
+        json_data = requests.get(url).json()
 
-        url = "http://webforex.hermes.hexun.com/forex/quotelist?code=FOREXCNYUSD&column=Code,Price"
-        req = urllib.request.Request(url, headers=headers)
-        f = urllib.request.urlopen(req)
-        html = f.read().decode("utf-8")
+        self.cny_usd = json_data["rates"]['USD']
+        self.cny_eur = json_data["rates"]['EUR']
 
-        s = re.findall("{.*}",str(html))[0]
-        sjson = json.loads(s)
+        url  = "https://open.er-api.com/v6/latest/USD"
+        json_data = requests.get(url).json()
 
-        self.cny_usd = sjson["Data"][0][0][1]/10000
-        # print(self.cny_usd)
+        self.usd_cny = json_data['rates']['CNY']
+        self.usd_eur = json_data['rates']['EUR']
 
-        # url = "http://webforex.hermes.hexun.com/forex/quotelist?code=FOREXCNYEUR&column=Code,Price"
-        # req = urllib.request.Request(url, headers=headers)
-        # f = urllib.request.urlopen(req)
-        # html = f.read().decode("utf-8")
-        # print(html)
-        # s = re.findall("{.*}",str(html))[0]
-        # sjson = json.loads(s)
+        url  = "https://open.er-api.com/v6/latest/EUR"
+        json_data = requests.get(url).json()
+        print(json_data['time_eol_unix'])
 
-        # self.cny_eur = sjson["Data"][0][0][1]/10000
-        # print(self.cny_eur)
+        self.eur_cny = json_data['rates']['CNY']
+        self.eur_usd = json_data['rates']['USD']
 
-        url = "http://webforex.hermes.hexun.com/forex/quotelist?code=FOREXUSDCNY&column=Code,Price"
-        req = urllib.request.Request(url, headers=headers)
-        f = urllib.request.urlopen(req)
-        html = f.read().decode("utf-8")
+        self.update_exchange_rate(json_data['time_last_update_utc'])
 
-        s = re.findall("{.*}",str(html))[0]
-        sjson = json.loads(s)
+    # def hexun_update(self):        
+    #     headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:23.0) Gecko/20100101 Firefox/23.0'}
 
-        self.usd_cny = sjson["Data"][0][0][1]/10000
-        # print(self.usd_cny)
+    #     url = "http://webforex.hermes.hexun.com/forex/quotelist?code=FOREXCNYUSD&column=Code,Price"
+    #     req = urllib.request.Request(url, headers=headers)
+    #     f = urllib.request.urlopen(req)
+    #     html = f.read().decode("utf-8")
 
-        # url = "http://webforex.hermes.hexun.com/forex/quotelist?code=FOREXUSDEUR&column=Code,Price"
-        # req = urllib.request.Request(url, headers=headers)
-        # f = urllib.request.urlopen(req)
-        # html = f.read().decode("utf-8")
+    #     s = re.findall("{.*}",str(html))[0]
+    #     sjson = json.loads(s)
 
-        # s = re.findall("{.*}",str(html))[0]
-        # sjson = json.loads(s)
+    #     self.cny_usd = sjson["Data"][0][0][1]/10000
+    #     # print(self.cny_usd)
 
-        # self.usd_eur = sjson["Data"][0][0][1]/10000
-        # print(self.usd_eur)
+    #     # url = "http://webforex.hermes.hexun.com/forex/quotelist?code=FOREXCNYEUR&column=Code,Price"
+    #     # req = urllib.request.Request(url, headers=headers)
+    #     # f = urllib.request.urlopen(req)
+    #     # html = f.read().decode("utf-8")
+    #     # print(html)
+    #     # s = re.findall("{.*}",str(html))[0]
+    #     # sjson = json.loads(s)
 
-        url = "http://webforex.hermes.hexun.com/forex/quotelist?code=FOREXEURCNY&column=Code,Price"
-        req = urllib.request.Request(url, headers=headers)
-        f = urllib.request.urlopen(req)
-        html = f.read().decode("utf-8")
+    #     # self.cny_eur = sjson["Data"][0][0][1]/10000
+    #     # print(self.cny_eur)
 
-        s = re.findall("{.*}",str(html))[0]
-        sjson = json.loads(s)
+    #     url = "http://webforex.hermes.hexun.com/forex/quotelist?code=FOREXUSDCNY&column=Code,Price"
+    #     req = urllib.request.Request(url, headers=headers)
+    #     f = urllib.request.urlopen(req)
+    #     html = f.read().decode("utf-8")
 
-        self.eur_cny = sjson["Data"][0][0][1]/10000
-        # print(self.eur_cny)
+    #     s = re.findall("{.*}",str(html))[0]
+    #     sjson = json.loads(s)
 
-        url = "http://webforex.hermes.hexun.com/forex/quotelist?code=FOREXEURUSD&column=Code,Price"
-        req = urllib.request.Request(url, headers=headers)
-        f = urllib.request.urlopen(req)
-        html = f.read().decode("utf-8")
+    #     self.usd_cny = sjson["Data"][0][0][1]/10000
+    #     # print(self.usd_cny)
 
-        s = re.findall("{.*}",str(html))[0]
-        sjson = json.loads(s)
+    #     # url = "http://webforex.hermes.hexun.com/forex/quotelist?code=FOREXUSDEUR&column=Code,Price"
+    #     # req = urllib.request.Request(url, headers=headers)
+    #     # f = urllib.request.urlopen(req)
+    #     # html = f.read().decode("utf-8")
 
-        self.eur_usd = sjson["Data"][0][0][1]/10000
-        # print(self.eur_usd)
+    #     # s = re.findall("{.*}",str(html))[0]
+    #     # sjson = json.loads(s)
 
-        self.usd_eur = 1/self.eur_usd
-        self.cny_eur = 1/self.eur_cny
+    #     # self.usd_eur = sjson["Data"][0][0][1]/10000
+    #     # print(self.usd_eur)
 
-        self.update_exchange_rate(time.asctime(time.localtime(time.time())))
-        # self.update_exchange_rate(QDate.currentDate())
+    #     url = "http://webforex.hermes.hexun.com/forex/quotelist?code=FOREXEURCNY&column=Code,Price"
+    #     req = urllib.request.Request(url, headers=headers)
+    #     f = urllib.request.urlopen(req)
+    #     html = f.read().decode("utf-8")
+
+    #     s = re.findall("{.*}",str(html))[0]
+    #     sjson = json.loads(s)
+
+    #     self.eur_cny = sjson["Data"][0][0][1]/10000
+    #     # print(self.eur_cny)
+
+    #     url = "http://webforex.hermes.hexun.com/forex/quotelist?code=FOREXEURUSD&column=Code,Price"
+    #     req = urllib.request.Request(url, headers=headers)
+    #     f = urllib.request.urlopen(req)
+    #     html = f.read().decode("utf-8")
+
+    #     s = re.findall("{.*}",str(html))[0]
+    #     sjson = json.loads(s)
+
+    #     self.eur_usd = sjson["Data"][0][0][1]/10000
+    #     # print(self.eur_usd)
+
+    #     self.usd_eur = 1/self.eur_usd
+    #     self.cny_eur = 1/self.eur_cny
+
+    #     self.update_exchange_rate(time.asctime(time.localtime(time.time())))
+    #     # self.update_exchange_rate(QDate.currentDate())
 
     def forex_update(self):
         self.c = CurrencyRates()                                                 
