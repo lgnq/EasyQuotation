@@ -27,6 +27,8 @@ import pyqtgraph as pg
 
 from PyQt5.QtCore import QDate
 
+import csv
+
 class MyWindow(QMainWindow, Ui_MainWindow):
     def __init__(self, parent=None):
         super(MyWindow, self).__init__(parent)
@@ -34,9 +36,10 @@ class MyWindow(QMainWindow, Ui_MainWindow):
 
         self.setWindowIcon(QtGui.QIcon('M.png'))
 
-        self.wb = xlrd.open_workbook("price_book.xls")
-        self.sheet = self.wb.sheet_by_index(0)
-        self.sheet0_name = self.wb.sheet_names()[0]
+        self.df_mps = pd.read_excel('Pricing of BU MS Products.xlsx', sheet_name=1, header=7)
+        self.df_ls  = pd.read_excel('Pricing of BU MS Products.xlsx', sheet_name=2, header=3)
+        # print(self.df_mps.loc[self.df_mps['Part Number'] == 'MLX90372'])
+        # print(self.df_mps['Part Number'])
         
         if os.path.exists("exchange_rate.txt"):
             self.load_exchange_rate()
@@ -137,14 +140,21 @@ class MyWindow(QMainWindow, Ui_MainWindow):
     def order_number_text_edited(self):
         current_str = self.order_number.text()
 
-        column_pn = self.get_column_by_name('number')
-
         self.listWidget.clear()
 
-        if len(current_str) > 7:
-            for i in range(0, self.sheet.nrows):
-                if self.sheet.cell_value(i, column_pn).upper().find(current_str.upper()) >= 0:
-                    self.listWidget.addItem(self.sheet.cell_value(i, column_pn))
+        if len(current_str) > 6:
+            # print(self.df_mps[self.df_mps['Part Number'].str.contains(current_str, na=False)])
+            self.df_result = self.df_mps[self.df_mps['Part Number'].str.contains(current_str, na=False)]
+            if (self.df_result.empty):
+                self.df_result = self.df_ls[self.df_ls['MLX Order Number'].str.contains(current_str, na=False)]
+                if (self.df_result.empty == False):
+                    for ind in self.df_result.index:
+                        # print(df_result['Part Number'][ind], df_result['Temp Code'][ind])
+                        self.listWidget.addItem('{} {} {} {} {} {} {} {} {}'.format(self.df_result['MLX Order Number'][ind], self.df_result['50K'][ind], self.df_result['100K'][ind], self.df_result['250K'][ind], self.df_result['500K'][ind], self.df_result['1M'][ind], self.df_result['2.5M'][ind], self.df_result['5M'][ind], self.df_result['10M'][ind]))
+            else:
+                for ind in self.df_result.index:
+                    # print(df_result['Part Number'][ind], df_result['Temp Code'][ind])
+                    self.listWidget.addItem('{}{}{} {} {} {} {} {} {} {} {}'.format(self.df_result['Part Number'][ind], self.df_result['Temp Code'][ind], self.df_result['Package'][ind], self.df_result['>50K'][ind], self.df_result['>100K'][ind], self.df_result['>250K'][ind], self.df_result['>500K'][ind], self.df_result['>1M'][ind], self.df_result['>2.5M'][ind], self.df_result['>5 M'][ind], self.df_result['>10M'][ind]))
 
         if self.listWidget.count() == 1:
             self.update_price_list(self.listWidget.item(0).text())
@@ -165,7 +175,7 @@ class MyWindow(QMainWindow, Ui_MainWindow):
 
         self.update_quotation(button, price)
 
-    def update_price_list(self, order_number):
+    def update_price_list(self, text):
         self.price_50k.setEnabled(True)
         self.price_100k.setEnabled(True)
         self.price_250k.setEnabled(True)
@@ -175,46 +185,60 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         self.price_5m.setEnabled(True)
         self.price_10m.setEnabled(True)
 
-        column_pn   = self.get_column_by_name('number')
+        price = text.split(' ')
 
-        column_50k  = self.get_column_by_name('50K')
-        column_100k = self.get_column_by_name('100K')
-        column_250k = self.get_column_by_name('250K')
-        column_500k = self.get_column_by_name('500K')
-        column_1m   = self.get_column_by_name('1M')
-        column_2_5m = self.get_column_by_name('2.5M')
-        column_5m   = self.get_column_by_name('5M')
-        column_10m  = self.get_column_by_name('10M')
+        self.price_50k.setText("EUR {0:.3f}".format(float(price[1])))
+        self.price_100k.setText("EUR {0:.3f}".format(float(price[2])))
+        self.price_250k.setText("EUR {0:.3f}".format(float(price[3])))
+        self.price_500k.setText("EUR {0:.3f}".format(float(price[4])))
+        self.price_1m.setText("EUR {0:.3f}".format(float(price[5])))
+        self.price_2_5m.setText("EUR {0:.3f}".format(float(price[6])))
+        self.price_5m.setText("EUR {0:.3f}".format(float(price[7])))
+        self.price_10m.setText("EUR {0:.3f}".format(float(price[8])))
 
-        for i in range(0, self.sheet.nrows):
-            if self.sheet.cell_value(i, column_pn) == order_number:
-                if (column_50k != -1):
-                    self.price_50k.setText("EUR {0:.3f}".format(self.sheet.cell_value(i, column_50k)))
+        # column_pn   = self.get_column_by_name('number')
 
-                if (column_100k != -1):
-                    self.price_100k.setText("EUR {0:.3f}".format(self.sheet.cell_value(i, column_100k)))
+        # column_50k  = self.get_column_by_name('50K')
+        # column_100k = self.get_column_by_name('100K')
+        # column_250k = self.get_column_by_name('250K')
+        # column_500k = self.get_column_by_name('500K')
+        # column_1m   = self.get_column_by_name('1M')
+        # column_2_5m = self.get_column_by_name('2.5M')
+        # column_5m   = self.get_column_by_name('5M')
+        # column_10m  = self.get_column_by_name('10M')
 
-                if (column_250k != -1):
-                    self.price_250k.setText("EUR {0:.3f}".format(self.sheet.cell_value(i, column_250k)))
+        # for i in range(0, self.sheet.nrows):
+        #     if self.sheet.cell_value(i, column_pn) == order_number:
+        #         if (column_50k != -1):
+        #             self.price_50k.setText("EUR {0:.3f}".format(self.sheet.cell_value(i, column_50k)))
 
-                if (column_500k != -1):
-                    self.price_500k.setText("EUR {0:.3f}".format(self.sheet.cell_value(i, column_500k)))
+        #         if (column_100k != -1):
+        #             self.price_100k.setText("EUR {0:.3f}".format(self.sheet.cell_value(i, column_100k)))
 
-                if (column_1m != -1):
-                    self.price_1m.setText("EUR {0:.3f}".format(self.sheet.cell_value(i, column_1m)))
+        #         if (column_250k != -1):
+        #             self.price_250k.setText("EUR {0:.3f}".format(self.sheet.cell_value(i, column_250k)))
 
-                if (column_2_5m != -1):
-                    self.price_2_5m.setText("EUR {0:.3f}".format(self.sheet.cell_value(i, column_2_5m)))
+        #         if (column_500k != -1):
+        #             self.price_500k.setText("EUR {0:.3f}".format(self.sheet.cell_value(i, column_500k)))
 
-                if (column_5m != -1):
-                    self.price_5m.setText("EUR {0:.3f}".format(self.sheet.cell_value(i, column_5m)))
+        #         if (column_1m != -1):
+        #             self.price_1m.setText("EUR {0:.3f}".format(self.sheet.cell_value(i, column_1m)))
 
-                if (column_10m != -1):
-                    self.price_10m.setText("EUR {0:.3f}".format(self.sheet.cell_value(i, column_10m)))
+        #         if (column_2_5m != -1):
+        #             self.price_2_5m.setText("EUR {0:.3f}".format(self.sheet.cell_value(i, column_2_5m)))
+
+        #         if (column_5m != -1):
+        #             self.price_5m.setText("EUR {0:.3f}".format(self.sheet.cell_value(i, column_5m)))
+
+        #         if (column_10m != -1):
+        #             self.price_10m.setText("EUR {0:.3f}".format(self.sheet.cell_value(i, column_10m)))
 
     def list_view_clicked(self, qModelIndex):
-        clicked_order_number = self.listWidget.currentItem().text()  
-        self.update_price_list(clicked_order_number)    
+        clicked_row = self.listWidget.currentItem().text()  
+
+        # clicked_row = self.listWidget.currentRow()
+        
+        self.update_price_list(clicked_row)    
     
     def clear(self):
         self.order_number.clear()
@@ -424,7 +448,7 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         self.button_save_exchange_rate.setEnabled(True)
 
         # self.statusbar.showMessage(time.asctime(time.localtime(time.time())))
-        self.statusbar.showMessage("Exchange Rate on {} | Price Book version {}".format(time, self.sheet0_name))
+        # self.statusbar.showMessage("Exchange Rate on {} | Price Book version {}".format(time, self.sheet0_name))
 
     def hexun_update(self):        
         url  = "https://open.er-api.com/v6/latest/CNY"
