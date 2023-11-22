@@ -29,8 +29,6 @@ class MyWindow(QMainWindow, Ui_MainWindow):
 
         self.df_mps = pd.read_excel('Pricing of BU MS Products.xlsx', sheet_name=1, header=7)
         self.df_ls  = pd.read_excel('Pricing of BU MS Products.xlsx', sheet_name=2, header=3)
-        # print(self.df_mps.loc[self.df_mps['Part Number'] == 'MLX90372'])
-        # print(self.df_mps['Part Number'])
         
         if os.path.exists("exchange_rate.txt"):
             self.load_exchange_rate()
@@ -118,33 +116,20 @@ class MyWindow(QMainWindow, Ui_MainWindow):
     def about(self):
         print("about")
 
-    def get_column_by_name(self, name):
-        header = self.sheet.row_values(0)
-        
-        for i in range(len(header)):
-            if (header[i].upper().find(name.upper()) != -1):
-                return i
-        
-        print("can't find column containing {}".format(name))
-        return -1        
-
     def order_number_text_edited(self):
         current_str = self.order_number.text()
 
         self.listWidget.clear()
 
         if len(current_str) > 6:
-            # print(self.df_mps[self.df_mps['Part Number'].str.contains(current_str, na=False)])
             self.df_result = self.df_mps[self.df_mps['Part Number'].str.contains(current_str, na=False)]
             if (self.df_result.empty):
                 self.df_result = self.df_ls[self.df_ls['MLX Order Number'].str.contains(current_str, na=False)]
                 if (self.df_result.empty == False):
                     for ind in self.df_result.index:
-                        # print(df_result['Part Number'][ind], df_result['Temp Code'][ind])
                         self.listWidget.addItem('{} {} {} {} {} {} {} {} {}'.format(self.df_result['MLX Order Number'][ind], self.df_result['50K'][ind], self.df_result['100K'][ind], self.df_result['250K'][ind], self.df_result['500K'][ind], self.df_result['1M'][ind], self.df_result['2.5M'][ind], self.df_result['5M'][ind], self.df_result['10M'][ind]))
             else:
                 for ind in self.df_result.index:
-                    # print(df_result['Part Number'][ind], df_result['Temp Code'][ind])
                     self.listWidget.addItem('{}{}{} {} {} {} {} {} {} {} {}'.format(self.df_result['Part Number'][ind], self.df_result['Temp Code'][ind], self.df_result['Package'][ind], self.df_result['>50K'][ind], self.df_result['>100K'][ind], self.df_result['>250K'][ind], self.df_result['>500K'][ind], self.df_result['>1M'][ind], self.df_result['>2.5M'][ind], self.df_result['>5 M'][ind], self.df_result['>10M'][ind]))
 
         if self.listWidget.count() == 1:
@@ -187,48 +172,9 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         self.price_5m.setText("EUR {0:.3f}".format(float(price[7])))
         self.price_10m.setText("EUR {0:.3f}".format(float(price[8])))
 
-        # column_pn   = self.get_column_by_name('number')
-
-        # column_50k  = self.get_column_by_name('50K')
-        # column_100k = self.get_column_by_name('100K')
-        # column_250k = self.get_column_by_name('250K')
-        # column_500k = self.get_column_by_name('500K')
-        # column_1m   = self.get_column_by_name('1M')
-        # column_2_5m = self.get_column_by_name('2.5M')
-        # column_5m   = self.get_column_by_name('5M')
-        # column_10m  = self.get_column_by_name('10M')
-
-        # for i in range(0, self.sheet.nrows):
-        #     if self.sheet.cell_value(i, column_pn) == order_number:
-        #         if (column_50k != -1):
-        #             self.price_50k.setText("EUR {0:.3f}".format(self.sheet.cell_value(i, column_50k)))
-
-        #         if (column_100k != -1):
-        #             self.price_100k.setText("EUR {0:.3f}".format(self.sheet.cell_value(i, column_100k)))
-
-        #         if (column_250k != -1):
-        #             self.price_250k.setText("EUR {0:.3f}".format(self.sheet.cell_value(i, column_250k)))
-
-        #         if (column_500k != -1):
-        #             self.price_500k.setText("EUR {0:.3f}".format(self.sheet.cell_value(i, column_500k)))
-
-        #         if (column_1m != -1):
-        #             self.price_1m.setText("EUR {0:.3f}".format(self.sheet.cell_value(i, column_1m)))
-
-        #         if (column_2_5m != -1):
-        #             self.price_2_5m.setText("EUR {0:.3f}".format(self.sheet.cell_value(i, column_2_5m)))
-
-        #         if (column_5m != -1):
-        #             self.price_5m.setText("EUR {0:.3f}".format(self.sheet.cell_value(i, column_5m)))
-
-        #         if (column_10m != -1):
-        #             self.price_10m.setText("EUR {0:.3f}".format(self.sheet.cell_value(i, column_10m)))
-
     def list_view_clicked(self, qModelIndex):
         clicked_row = self.listWidget.currentItem().text()  
 
-        # clicked_row = self.listWidget.currentRow()
-        
         self.update_price_list(clicked_row)    
     
     def clear(self):
