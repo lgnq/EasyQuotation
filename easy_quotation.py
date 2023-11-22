@@ -11,23 +11,14 @@ import pandas as pd
 from PyQt5.QtWidgets import QApplication, QMainWindow, QPushButton, QFileDialog
 from main_window import *
 
-import json
-
-import xlrd
 from openpyxl import load_workbook
-
-from PyQt5.QtCore import QStringListModel
 
 import time
 import re
 import urllib.request
 import requests
 
-import pyqtgraph as pg
-
 from PyQt5.QtCore import QDate
-
-import csv
 
 class MyWindow(QMainWindow, Ui_MainWindow):
     def __init__(self, parent=None):
