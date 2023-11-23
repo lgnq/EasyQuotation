@@ -117,7 +117,7 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         print("about")
 
     def order_number_text_edited(self):
-        current_str = self.order_number.text()
+        current_str = self.order_number.text().upper()
 
         self.listWidget.clear()
 
@@ -383,6 +383,8 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         self.rs_usd_x.setEnabled(True)                       
 
         self.button_save_exchange_rate.setEnabled(True)
+
+        self.statusbar.showMessage("Exchange Rate on {}".format(time))
 
         # self.statusbar.showMessage(time.asctime(time.localtime(time.time())))
         # self.statusbar.showMessage("Exchange Rate on {} | Price Book version {}".format(time, self.sheet0_name))
