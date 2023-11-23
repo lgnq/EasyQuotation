@@ -121,7 +121,7 @@ class MyWindow(QMainWindow, Ui_MainWindow):
 
         self.listWidget.clear()
 
-        if len(current_str) > 6:
+        if len(current_str) > 4:
             self.df_result = self.df_mps[self.df_mps['Part Number'].str.contains(current_str, na=False)]
             if (self.df_result.empty):
                 self.df_result = self.df_ls[self.df_ls['MLX Order Number'].str.contains(current_str, na=False)]
